@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mucap/screens/landing/Home/componanats/story.dart';
 import 'package:mucap/screens/landing/landing.dart';
 import 'package:palestine_trusted_device/palestine_trusted_device.dart';
 import 'dart:async';
@@ -171,6 +172,7 @@ class _MyAppState extends State<MyApp> {
             initialRoute: '/',
             routes: {
               '/': (context) => Landing(),
+              '/stories': (context) => MoreStories(),
             },
           );
   }
