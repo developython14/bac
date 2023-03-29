@@ -39,7 +39,7 @@ class contatc extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Directionality(
-      textDirection: TextDirection.ltr,
+      textDirection: TextDirection.rtl,
       child: Scaffold(
         appBar: AppBar(
           backgroundColor: Color(0xff3A4750),
@@ -52,7 +52,7 @@ class contatc extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text('web'),
+              Text('الموقع الإلكتروني'),
               Card(
                   child: ListTile(
                 onTap: _launchUrl_web,
@@ -61,7 +61,7 @@ class contatc extends StatelessWidget {
                 trailing: Icon(Icons.arrow_forward_ios),
               )),
               Text(
-                'email',
+                'البريد الإلكتروني',
               ),
               Card(
                   child: ListTile(
@@ -71,7 +71,7 @@ class contatc extends StatelessWidget {
                 trailing: Icon(Icons.arrow_forward_ios),
               )),
               Text(
-                'phone',
+                'رقم الهاتف',
               ),
               Card(
                   child: ListTile(
@@ -81,7 +81,7 @@ class contatc extends StatelessWidget {
                 trailing: Icon(Icons.arrow_forward_ios),
               )),
               Text(
-                'sms',
+                'الرسائل القصيرة',
               ),
               Card(
                   child: ListTile(
