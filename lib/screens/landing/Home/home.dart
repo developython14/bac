@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mucap/screens/landing/componants/story.dart';
+import 'package:mucap/screens/landing/Home/componanats/story.dart';
 
 class Home extends StatelessWidget {
   const Home({
