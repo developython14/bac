@@ -90,6 +90,36 @@ class contatc extends StatelessWidget {
                 title: Text('+966-56-302-7472'),
                 trailing: Icon(Icons.arrow_forward_ios),
               )),
+              Text(
+                'الرسائل القصيرة',
+              ),
+              Card(
+                  child: ListTile(
+                onTap: _launchUrl_sms,
+                leading: Icon(Icons.facebook),
+                title: Text('الأستاذ بلال'),
+                trailing: Icon(Icons.arrow_forward_ios),
+              )),
+              Text(
+                ' إنستغرام',
+              ),
+              Card(
+                  child: ListTile(
+                onTap: _launchUrl_sms,
+                leading: Icon(Icons.facebook_outlined),
+                title: Text('الأستاذ بلال'),
+                trailing: Icon(Icons.arrow_forward_ios),
+              )),
+              Text(
+                ' واتس اب  ',
+              ),
+              Card(
+                  child: ListTile(
+                onTap: _launchUrl_sms,
+                leading: Icon(Icons.facebook_outlined),
+                title: Text('الأستاذ بلال'),
+                trailing: Icon(Icons.arrow_forward_ios),
+              )),
             ],
           ),
         ),
