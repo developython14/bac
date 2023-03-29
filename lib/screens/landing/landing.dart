@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 import 'package:mucap/screens/landing/Home/home.dart';
+import 'package:mucap/screens/landing/comment/comment.dart';
 import 'package:mucap/screens/landing/contact/contact.dart';
 import 'package:mucap/screens/landing/payment/payment.dart';
 
@@ -20,7 +21,7 @@ class _LandingState extends State<Landing> {
     contatc(),
     Home(),
     payment(),
-    Text('free'),
+    comments(),
   ];
   @override
   Widget build(BuildContext context) {
