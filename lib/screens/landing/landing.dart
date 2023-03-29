@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 import 'package:mucap/screens/landing/Home/home.dart';
+import 'package:mucap/screens/landing/contact/contact.dart';
 
 class Landing extends StatefulWidget {
   const Landing({Key? key}) : super(key: key);
@@ -14,10 +15,10 @@ class _LandingState extends State<Landing> {
   String host_image = '';
 
   List widgets = [
-    Text('free'),
-    Text('free'),
-    Text('free'),
+    Text('one'),
+    contatc(),
     Home(),
+    Text('free'),
     Text('free'),
   ];
   @override
@@ -44,7 +45,6 @@ class _LandingState extends State<Landing> {
         ),
         body: widgets[selected_index],
         backgroundColor: Colors.grey,
-        appBar: AppBar(title: Text('gtr')),
       ),
     );
   }
