@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 
-class comments extends StatelessWidget {
+class comments extends StatefulWidget {
   const comments({Key? key}) : super(key: key);
 
+  @override
+  State<comments> createState() => _commentsState();
+}
+
+class _commentsState extends State<comments> {
   @override
   Widget build(BuildContext context) {
     var toma = [2, 2, 2, 2, 2];
