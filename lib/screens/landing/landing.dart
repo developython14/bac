@@ -20,6 +20,22 @@ class _LandingState extends State<Landing> {
     return Directionality(
       textDirection: TextDirection.rtl,
       child: Scaffold(
+        bottomNavigationBar: ConvexAppBar(
+          activeColor: Colors.black,
+          color: Colors.black,
+          backgroundColor: Colors.white,
+          height: 56,
+          style: TabStyle.react,
+          items: [
+            TabItem(icon: Icons.home, title: 'frdee'),
+            TabItem(icon: Icons.shopping_cart, title: 'frdee'),
+            TabItem(icon: Icons.wechat, title: 'frdee'),
+            TabItem(icon: Icons.settings, title: 'freeedd'),
+          ],
+          onTap: (int i) => setState(() {
+            selected_index = i;
+          }),
+        ),
         body: widgets[selected_index],
         backgroundColor: Colors.grey,
         appBar: AppBar(title: Text('gtr')),
