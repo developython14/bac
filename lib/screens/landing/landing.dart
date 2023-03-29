@@ -39,7 +39,7 @@ class _LandingState extends State<Landing> {
               TabItem(icon: Icons.contacts, title: 'اتصل بنا'),
               TabItem(icon: Icons.home, title: 'الرئيسية'),
               TabItem(icon: Icons.payment, title: 'طرق الدفع'),
-              TabItem(icon: Icons.comment, title: 'آراء وتعليقات'),
+              TabItem(icon: Icons.comment, title: 'آراء '),
             ],
             onTap: (int i) => setState(() {
               selected_index = i;
