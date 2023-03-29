@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:rightservices/screen/providers/translations_provider.dart';
-import 'package:provider/provider.dart';
+
 import 'package:flutter/foundation.dart';
 
 final Uri _url_email =
@@ -40,12 +39,12 @@ class contatc extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Directionality(
-      textDirection: context.read<Translator>().gettext('direction'),
+      textDirection: TextDirection.ltr,
       child: Scaffold(
         appBar: AppBar(
           backgroundColor: Color(0xff3A4750),
           title: Text(
-            context.read<Translator>().gettext('conatctus').toString(),
+            ' اتصل بنا',
           ),
         ),
         body: Padding(
@@ -53,7 +52,7 @@ class contatc extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(context.read<Translator>().gettext('web')),
+              Text('web'),
               Card(
                   child: ListTile(
                 onTap: _launchUrl_web,
@@ -62,7 +61,7 @@ class contatc extends StatelessWidget {
                 trailing: Icon(Icons.arrow_forward_ios),
               )),
               Text(
-                context.read<Translator>().gettext('email'),
+                'email',
               ),
               Card(
                   child: ListTile(
@@ -72,7 +71,7 @@ class contatc extends StatelessWidget {
                 trailing: Icon(Icons.arrow_forward_ios),
               )),
               Text(
-                context.read<Translator>().gettext('phone'),
+                'phone',
               ),
               Card(
                   child: ListTile(
@@ -82,7 +81,7 @@ class contatc extends StatelessWidget {
                 trailing: Icon(Icons.arrow_forward_ios),
               )),
               Text(
-                context.read<Translator>().gettext('sms'),
+                'sms',
               ),
               Card(
                   child: ListTile(
