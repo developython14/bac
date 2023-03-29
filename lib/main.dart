@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mucap/screens/landing/Home/componanats/story.dart';
 import 'package:mucap/screens/landing/landing.dart';
 import 'package:mucap/screens/landing/login/login.dart';
+import 'package:mucap/screens/landing/signup/signup.dart';
 import 'package:palestine_trusted_device/palestine_trusted_device.dart';
 import 'dart:async';
 import 'dart:developer' as developer;
@@ -170,12 +171,12 @@ class _MyAppState extends State<MyApp> {
                 textTheme: GoogleFonts.cairoTextTheme(
                   Theme.of(context).textTheme,
                 )),
-            initialRoute: '/login',
+            initialRoute: '/signup',
             routes: {
               '/': (context) => Landing(),
               '/stories': (context) => MoreStories(),
-              '/login': (context) => login(),
-              '/signup': (context) => login(),
+              '/login': (context) => MyLogin(),
+              '/signup': (context) => MyRegister(),
             },
           );
   }

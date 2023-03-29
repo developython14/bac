@@ -1,157 +1,129 @@
-import 'dart:async';
 import 'package:flutter/material.dart';
-import 'dart:convert' as convert;
-import 'package:http/http.dart' as http;
 
-class login extends StatefulWidget {
-  const login({Key? key}) : super(key: key);
+class MyLogin extends StatefulWidget {
+  const MyLogin({Key? key}) : super(key: key);
 
   @override
-  State<login> createState() => _loginState();
+  _MyLoginState createState() => _MyLoginState();
 }
 
-class _loginState extends State<login> {
-  String email = 'Choose Role';
-  String password = 'Choose Role';
-  String message = 'Choose Role';
-  String baseurl = 'https://rightservices.herokuapp.com';
-  Future<void> signup() async {
-    final datatosend = {
-      'email': email,
-      'password': password,
-    };
-    final url = Uri.parse(baseurl + '/admin/login/');
-    var request = http.MultipartRequest('POST', url);
-    final headers = {'Content-type': 'multipart/form-data'};
-    request.headers.addAll(headers);
-    request.fields.addAll(datatosend);
-    var push = await request.send();
-    var response = await http.Response.fromStream(push);
-    var jsonResponse = convert.jsonDecode(response.body);
-    if (jsonResponse['message'] == 'login succesfly') {}
-    setState(() {
-      message = jsonResponse['message'];
-    });
-  }
-
+class _MyLoginState extends State<MyLogin> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SingleChildScrollView(
-        child: Column(
+    return Container(
+      decoration: BoxDecoration(
+        image: DecorationImage(
+            image: AssetImage('assets/login.png'), fit: BoxFit.cover),
+      ),
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+        body: Stack(
           children: [
-            Image.asset('assets/login.png'),
-            SizedBox(
-              height: 50,
-            ),
+            Container(),
             Container(
-              width: MediaQuery.of(context).size.width * 0.8,
-              child: Column(
-                children: [
-                  Text(
-                    'ضع معلوماتك',
-                    textDirection: TextDirection.rtl,
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 40,
-                  ),
-                  Row(
-                    children: [
-                      Expanded(
-                        child: Container(
-                          height: 50,
-                          child: TextField(
-                            onChanged: ((value) {
-                              email = value;
-                            }),
-                            style: TextStyle(color: Colors.white),
-                            textAlign: TextAlign.center,
-                            decoration: InputDecoration(
-                              focusedBorder:
-                                  OutlineInputBorder(borderSide: BorderSide()),
-                              enabledBorder:
-                                  OutlineInputBorder(borderSide: BorderSide()),
-                              hintText: 'اسم المستخدم',
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Row(
-                    children: [
-                      Expanded(
-                        child: Container(
-                          height: 50,
-                          child: TextField(
-                            onChanged: ((value) {
-                              password = value;
-                              print(password);
-                            }),
-                            obscureText: true,
-                            style: TextStyle(color: Colors.white),
-                            textAlign: TextAlign.center,
-                            decoration: InputDecoration(
-                                focusedBorder: OutlineInputBorder(
-                                    borderSide: BorderSide()),
-                                enabledBorder: OutlineInputBorder(
-                                    borderSide: BorderSide()),
-                                hintText: 'كلمة المرور ',
-                                hintStyle: TextStyle()),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  SizedBox(
-                    height: 60,
-                  ),
-                  SizedBox(
-                      width: MediaQuery.of(context).size.width * 0.8,
-                      height: 60,
-                      child: ElevatedButton(
-                          style: ButtonStyle(
-                              shape: MaterialStateProperty.all<
-                                      RoundedRectangleBorder>(
-                                  RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(15),
-                              )),
-                              backgroundColor: MaterialStateProperty.all<Color>(
-                                  Color.fromARGB(255, 202, 198, 181))),
-                          onPressed: () async {
-                            print(message);
-                            if (message == 'login succesfly') {
-                              Navigator.pushNamed(context, '/home');
-                            }
-                          },
-                          child: Text(
-                            'تسجيل الدخول',
-                            style: TextStyle(fontWeight: FontWeight.bold),
-                          ))),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  TextButton(
-                      onPressed: () {
-                        Navigator.pushNamed(context, '/signup');
-                      },
-                      child: Text(
-                        'حساب جديد',
-                        style: TextStyle(color: Colors.white),
-                      ))
-                ],
+              padding: EdgeInsets.only(left: 35, top: 130),
+              child: Text(
+                'Welcome\nBack',
+                style: TextStyle(color: Colors.white, fontSize: 33),
               ),
-            )
+            ),
+            SingleChildScrollView(
+              child: Container(
+                padding: EdgeInsets.only(
+                    top: MediaQuery.of(context).size.height * 0.5),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                      margin: EdgeInsets.only(left: 35, right: 35),
+                      child: Column(
+                        children: [
+                          TextField(
+                            style: TextStyle(color: Colors.black),
+                            decoration: InputDecoration(
+                                fillColor: Colors.grey.shade100,
+                                filled: true,
+                                hintText: "Email",
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10),
+                                )),
+                          ),
+                          SizedBox(
+                            height: 30,
+                          ),
+                          TextField(
+                            style: TextStyle(),
+                            obscureText: true,
+                            decoration: InputDecoration(
+                                fillColor: Colors.grey.shade100,
+                                filled: true,
+                                hintText: "Password",
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10),
+                                )),
+                          ),
+                          SizedBox(
+                            height: 40,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                'Sign in',
+                                style: TextStyle(
+                                    fontSize: 27, fontWeight: FontWeight.w700),
+                              ),
+                              CircleAvatar(
+                                radius: 30,
+                                backgroundColor: Color(0xff4c505b),
+                                child: IconButton(
+                                    color: Colors.white,
+                                    onPressed: () {},
+                                    icon: Icon(
+                                      Icons.arrow_forward,
+                                    )),
+                              )
+                            ],
+                          ),
+                          SizedBox(
+                            height: 40,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              TextButton(
+                                onPressed: () {
+                                  Navigator.pushNamed(context, 'register');
+                                },
+                                child: Text(
+                                  'Sign Up',
+                                  textAlign: TextAlign.left,
+                                  style: TextStyle(
+                                      decoration: TextDecoration.underline,
+                                      color: Color(0xff4c505b),
+                                      fontSize: 18),
+                                ),
+                                style: ButtonStyle(),
+                              ),
+                              TextButton(
+                                  onPressed: () {},
+                                  child: Text(
+                                    'Forgot Password',
+                                    style: TextStyle(
+                                      decoration: TextDecoration.underline,
+                                      color: Color(0xff4c505b),
+                                      fontSize: 18,
+                                    ),
+                                  )),
+                            ],
+                          )
+                        ],
+                      ),
+                    )
+                  ],
+                ),
+              ),
+            ),
           ],
         ),
       ),
