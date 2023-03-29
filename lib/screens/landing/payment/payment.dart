@@ -5,9 +5,12 @@ class payment extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
-        children: [],
+    return Directionality(
+      textDirection: TextDirection.rtl,
+      child: Scaffold(
+        body: Column(
+          children: [Text('يمكنك الدفع باستخدام Baridi Mob')],
+        ),
       ),
     );
   }
