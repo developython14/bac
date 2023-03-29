@@ -16,7 +16,7 @@ class storybutton extends StatelessWidget {
             decoration: BoxDecoration(
               border:
                   Border.all(color: Color.fromARGB(255, 255, 17, 0), width: 4),
-              borderRadius: BorderRadius.circular(30),
+              borderRadius: BorderRadius.circular(50),
               color: Colors.black,
               image: DecorationImage(
                   image: NetworkImage(
