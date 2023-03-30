@@ -177,6 +177,10 @@ class _MyAppState extends State<MyApp> {
               '/stories': (context) => MoreStories(),
               '/login': (context) => MyLogin(),
               '/signup': (context) => MyRegister(),
+              '/filieres': (context) => MyRegister(),
+              '/modules': (context) => MyRegister(),
+              '/profs': (context) => MyRegister(),
+              '/cours': (context) => MyRegister(),
             },
           );
   }
