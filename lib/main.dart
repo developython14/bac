@@ -171,7 +171,7 @@ class _MyAppState extends State<MyApp> {
                 textTheme: GoogleFonts.cairoTextTheme(
                   Theme.of(context).textTheme,
                 )),
-            initialRoute: '/signup',
+            initialRoute: '/',
             routes: {
               '/': (context) => Landing(),
               '/stories': (context) => MoreStories(),
