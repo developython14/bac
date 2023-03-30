@@ -13,6 +13,7 @@ class Home extends StatelessWidget {
       Image.network(
           'https://th.bing.com/th/id/OIP.ejJwy93WhLu6uCZ32Y8pCAHaDH?pid=ImgDet&rs=1'),
     ];
+    final hei = MediaQuery.of(context).size.height;
     return SingleChildScrollView(
         child: Padding(
       padding: const EdgeInsets.all(10.0),
@@ -50,54 +51,19 @@ class Home extends StatelessWidget {
               ],
             ),
           ),
-          Text(
-            'المستويات ',
-            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-          ),
-          Container(
-            color: Colors.green,
-            child: const Material(
-              child: ListTile(
-                title: Text(
-                  'السنة الثالثة ثانوي ',
-                  style: TextStyle(fontSize: 20),
-                ),
-                leading: CircleAvatar(
-                  backgroundColor: Colors.red,
-                  child: Text('3AM'),
-                ),
+          Row(
+            children: [
+              Container(
+                color: Colors.red,
+                width: hei * 0.5,
+                height: 20,
               ),
-            ),
-          ),
-          Container(
-            color: Colors.green,
-            child: const Material(
-              child: ListTile(
-                title: Text(
-                  'السنة الثالثة ثانوي ',
-                  style: TextStyle(fontSize: 20),
-                ),
-                leading: CircleAvatar(
-                  backgroundColor: Colors.red,
-                  child: Text('3AM'),
-                ),
+              Container(
+                color: Colors.green,
+                width: hei * 0.5,
+                height: 20,
               ),
-            ),
-          ),
-          Container(
-            color: Colors.green,
-            child: const Material(
-              child: ListTile(
-                title: Text(
-                  'السنة الثالثة ثانوي ',
-                  style: TextStyle(fontSize: 20),
-                ),
-                leading: CircleAvatar(
-                  backgroundColor: Colors.red,
-                  child: Text('3AM'),
-                ),
-              ),
-            ),
+            ],
           )
         ],
       ),
