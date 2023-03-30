@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mucap/screens/landing/Home/componanats/story.dart';
+import 'package:mucap/screens/landing/change_photo/change_photo.dart';
+import 'package:mucap/screens/landing/faq/faq.dart';
 import 'package:mucap/screens/landing/landing.dart';
 import 'package:mucap/screens/landing/login/login.dart';
 import 'package:mucap/screens/landing/signup/signup.dart';
@@ -181,7 +183,8 @@ class _MyAppState extends State<MyApp> {
               '/modules': (context) => MyRegister(),
               '/profs': (context) => MyRegister(),
               '/cours': (context) => MyRegister(),
-              '/faq': (context) => MyRegister(),
+              '/faq': (context) => faq(),
+              '/change_photo': (context) => change_photo(),
             },
           );
   }

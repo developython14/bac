@@ -30,7 +30,7 @@ class _LandingState extends State<Landing> {
         child: Scaffold(
           drawer: ClipRRect(
             borderRadius: BorderRadius.circular(20),
-            child: drawer_guess(),
+            child: drawer_login(),
           ),
           bottomNavigationBar: ConvexAppBar(
             activeColor: Colors.black,
@@ -103,7 +103,9 @@ class drawer_login extends StatelessWidget {
           ),
           Card(
             child: ListTile(
-              onTap: () {},
+              onTap: () {
+                Navigator.pushNamed(context, '/change_photo');
+              },
               leading: Icon(
                 Icons.photo_library,
                 color: Color(0xffF6C90E),
