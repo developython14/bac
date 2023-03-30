@@ -181,6 +181,7 @@ class _MyAppState extends State<MyApp> {
               '/modules': (context) => MyRegister(),
               '/profs': (context) => MyRegister(),
               '/cours': (context) => MyRegister(),
+              '/faq': (context) => MyRegister(),
             },
           );
   }
