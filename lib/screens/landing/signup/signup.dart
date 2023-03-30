@@ -26,7 +26,7 @@ class _MyRegisterState extends State<MyRegister> {
             Container(
               padding: EdgeInsets.only(left: 35, top: 30),
               child: Text(
-                'Create\nAccount',
+                'إنشاء\nحساب',
                 style: TextStyle(color: Colors.white, fontSize: 33),
               ),
             ),
@@ -56,7 +56,7 @@ class _MyRegisterState extends State<MyRegister> {
                                     color: Colors.black,
                                   ),
                                 ),
-                                hintText: "Name",
+                                hintText: "اسم المستخدم",
                                 hintStyle: TextStyle(color: Colors.white),
                                 border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(10),
@@ -80,7 +80,7 @@ class _MyRegisterState extends State<MyRegister> {
                                     color: Colors.black,
                                   ),
                                 ),
-                                hintText: "Email",
+                                hintText: "كلمة المرور",
                                 hintStyle: TextStyle(color: Colors.white),
                                 border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(10),
@@ -105,7 +105,7 @@ class _MyRegisterState extends State<MyRegister> {
                                     color: Colors.black,
                                   ),
                                 ),
-                                hintText: "Password",
+                                hintText: "تأكيد كلمة المرور",
                                 hintStyle: TextStyle(color: Colors.white),
                                 border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(10),
@@ -118,7 +118,7 @@ class _MyRegisterState extends State<MyRegister> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Text(
-                                'Sign Up',
+                                'إنشاء حساب',
                                 style: TextStyle(
                                     color: Colors.white,
                                     fontSize: 27,
@@ -144,10 +144,10 @@ class _MyRegisterState extends State<MyRegister> {
                             children: [
                               TextButton(
                                 onPressed: () {
-                                  Navigator.pushNamed(context, 'login');
+                                  Navigator.pushNamed(context, '/login');
                                 },
                                 child: Text(
-                                  'Sign In',
+                                  ' تسجيل الدخول',
                                   textAlign: TextAlign.left,
                                   style: TextStyle(
                                       decoration: TextDecoration.underline,
