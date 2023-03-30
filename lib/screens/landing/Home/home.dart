@@ -51,30 +51,62 @@ class Home extends StatelessWidget {
               ],
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.only(top: 20),
-            child: Row(
-              children: [
-                Container(
-                  color: Colors.red,
-                  width: hei * 0.2,
-                  height: 50,
-                  child: Center(
-                    child: Text('data'),
-                  ),
-                ),
-                Container(
-                  color: Colors.green,
-                  height: 50,
-                  child: Center(
-                    child: Text('3AM'),
-                  ),
-                ),
-              ],
-            ),
-          )
+          levels_componant(hei: hei)
         ],
       ),
     ));
+  }
+}
+
+class levels_componant extends StatelessWidget {
+  const levels_componant({
+    Key? key,
+    required this.hei,
+  }) : super(key: key);
+
+  final double hei;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(top: 20),
+      child: Row(
+        children: [
+          Expanded(
+            child: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                border: Border(
+                  left: BorderSide(
+                    color: Colors.green,
+                    width: 3,
+                  ),
+                ),
+              ),
+              height: 50,
+              child: Text(
+                'السنة الثالثة ثانوي ',
+              ),
+            ),
+          ),
+          Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              border: Border(
+                left: BorderSide(
+                  color: Colors.green,
+                  width: 3,
+                ),
+              ),
+            ),
+            height: 50,
+            width: hei * 0.05,
+            child: Center(
+              child: Text('3AM'),
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }
