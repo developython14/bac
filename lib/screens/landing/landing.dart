@@ -30,7 +30,7 @@ class _LandingState extends State<Landing> {
         child: Scaffold(
           drawer: ClipRRect(
             borderRadius: BorderRadius.circular(20),
-            child: drawer_guess(),
+            child: drawer_login(),
           ),
           bottomNavigationBar: ConvexAppBar(
             activeColor: Colors.black,

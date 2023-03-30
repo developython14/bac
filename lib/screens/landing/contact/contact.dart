@@ -47,80 +47,82 @@ class contatc extends StatelessWidget {
             ' اتصل بنا',
           ),
         ),
-        body: Padding(
-          padding: const EdgeInsets.all(14.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text('الموقع الإلكتروني'),
-              Card(
-                  child: ListTile(
-                onTap: _launchUrl_web,
-                leading: Icon(Icons.web),
-                title: Text('RightServices.com'),
-                trailing: Icon(Icons.arrow_forward_ios),
-              )),
-              Text(
-                'البريد الإلكتروني',
-              ),
-              Card(
-                  child: ListTile(
-                onTap: _launchUrl_email,
-                leading: Icon(Icons.email),
-                title: Text('S7QURAN-S@hotmail.com'),
-                trailing: Icon(Icons.arrow_forward_ios),
-              )),
-              Text(
-                'رقم الهاتف',
-              ),
-              Card(
-                  child: ListTile(
-                onTap: _launchUrl_phone,
-                leading: Icon(Icons.phone),
-                title: Text('+966-56-302-7472'),
-                trailing: Icon(Icons.arrow_forward_ios),
-              )),
-              Text(
-                'الرسائل القصيرة',
-              ),
-              Card(
-                  child: ListTile(
-                onTap: _launchUrl_sms,
-                leading: Icon(Icons.sms),
-                title: Text('+966-56-302-7472'),
-                trailing: Icon(Icons.arrow_forward_ios),
-              )),
-              Text(
-                'الرسائل القصيرة',
-              ),
-              Card(
-                  child: ListTile(
-                onTap: _launchUrl_sms,
-                leading: Icon(Icons.facebook),
-                title: Text('الأستاذ بلال'),
-                trailing: Icon(Icons.arrow_forward_ios),
-              )),
-              Text(
-                ' إنستغرام',
-              ),
-              Card(
-                  child: ListTile(
-                onTap: _launchUrl_sms,
-                leading: Icon(Icons.facebook_outlined),
-                title: Text('الأستاذ بلال'),
-                trailing: Icon(Icons.arrow_forward_ios),
-              )),
-              Text(
-                ' واتس اب  ',
-              ),
-              Card(
-                  child: ListTile(
-                onTap: _launchUrl_sms,
-                leading: Icon(Icons.facebook_outlined),
-                title: Text('الأستاذ بلال'),
-                trailing: Icon(Icons.arrow_forward_ios),
-              )),
-            ],
+        body: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(14.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text('الموقع الإلكتروني'),
+                Card(
+                    child: ListTile(
+                  onTap: _launchUrl_web,
+                  leading: Icon(Icons.web),
+                  title: Text('RightServices.com'),
+                  trailing: Icon(Icons.arrow_forward_ios),
+                )),
+                Text(
+                  'البريد الإلكتروني',
+                ),
+                Card(
+                    child: ListTile(
+                  onTap: _launchUrl_email,
+                  leading: Icon(Icons.email),
+                  title: Text('S7QURAN-S@hotmail.com'),
+                  trailing: Icon(Icons.arrow_forward_ios),
+                )),
+                Text(
+                  'رقم الهاتف',
+                ),
+                Card(
+                    child: ListTile(
+                  onTap: _launchUrl_phone,
+                  leading: Icon(Icons.phone),
+                  title: Text('+966-56-302-7472'),
+                  trailing: Icon(Icons.arrow_forward_ios),
+                )),
+                Text(
+                  'الرسائل القصيرة',
+                ),
+                Card(
+                    child: ListTile(
+                  onTap: _launchUrl_sms,
+                  leading: Icon(Icons.sms),
+                  title: Text('+966-56-302-7472'),
+                  trailing: Icon(Icons.arrow_forward_ios),
+                )),
+                Text(
+                  'الرسائل القصيرة',
+                ),
+                Card(
+                    child: ListTile(
+                  onTap: _launchUrl_sms,
+                  leading: Icon(Icons.facebook),
+                  title: Text('الأستاذ بلال'),
+                  trailing: Icon(Icons.arrow_forward_ios),
+                )),
+                Text(
+                  ' إنستغرام',
+                ),
+                Card(
+                    child: ListTile(
+                  onTap: _launchUrl_sms,
+                  leading: Icon(Icons.facebook_outlined),
+                  title: Text('الأستاذ بلال'),
+                  trailing: Icon(Icons.arrow_forward_ios),
+                )),
+                Text(
+                  ' واتس اب  ',
+                ),
+                Card(
+                    child: ListTile(
+                  onTap: _launchUrl_sms,
+                  leading: Icon(Icons.facebook_outlined),
+                  title: Text('الأستاذ بلال'),
+                  trailing: Icon(Icons.arrow_forward_ios),
+                )),
+              ],
+            ),
           ),
         ),
       ),
