@@ -23,7 +23,7 @@ class _MyLoginState extends State<MyLogin> {
             Container(
               padding: EdgeInsets.only(left: 35, top: 130),
               child: Text(
-                'Welcome\nBack',
+                'أهلًا وسهلًا\nمجددا',
                 style: TextStyle(color: Colors.white, fontSize: 33),
               ),
             ),
@@ -43,7 +43,7 @@ class _MyLoginState extends State<MyLogin> {
                             decoration: InputDecoration(
                                 fillColor: Colors.grey.shade100,
                                 filled: true,
-                                hintText: "Email",
+                                hintText: "اسم المستخدم",
                                 border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(10),
                                 )),
@@ -57,7 +57,7 @@ class _MyLoginState extends State<MyLogin> {
                             decoration: InputDecoration(
                                 fillColor: Colors.grey.shade100,
                                 filled: true,
-                                hintText: "Password",
+                                hintText: "اسم المستخدم",
                                 border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(10),
                                 )),
@@ -96,7 +96,7 @@ class _MyLoginState extends State<MyLogin> {
                                   Navigator.pushNamed(context, 'register');
                                 },
                                 child: Text(
-                                  'Sign Up',
+                                  'إنشاء حساب',
                                   textAlign: TextAlign.left,
                                   style: TextStyle(
                                       decoration: TextDecoration.underline,
