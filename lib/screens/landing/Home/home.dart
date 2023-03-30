@@ -51,19 +51,28 @@ class Home extends StatelessWidget {
               ],
             ),
           ),
-          Row(
-            children: [
-              Container(
-                color: Colors.red,
-                width: hei * 0.5,
-                height: 20,
-              ),
-              Container(
-                color: Colors.green,
-                width: hei * 0.5,
-                height: 20,
-              ),
-            ],
+          Padding(
+            padding: const EdgeInsets.only(top: 20),
+            child: Row(
+              children: [
+                Container(
+                  color: Colors.red,
+                  width: hei * 0.2,
+                  height: 50,
+                  child: Center(
+                    child: Text('data'),
+                  ),
+                ),
+                Container(
+                  color: Colors.green,
+                  width: hei * 0.5,
+                  height: 50,
+                  child: Center(
+                    child: Text('3AM'),
+                  ),
+                ),
+              ],
+            ),
           )
         ],
       ),
