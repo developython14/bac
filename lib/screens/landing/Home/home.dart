@@ -65,7 +65,6 @@ class Home extends StatelessWidget {
                 ),
                 Container(
                   color: Colors.green,
-                  width: hei * 0.5,
                   height: 50,
                   child: Center(
                     child: Text('3AM'),
