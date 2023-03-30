@@ -17,7 +17,6 @@ class _LandingState extends State<Landing> {
   String host_image = '';
 
   List widgets = [
-    Text('one'),
     contatc(),
     Home(),
     payment(),
@@ -36,7 +35,6 @@ class _LandingState extends State<Landing> {
             height: 56,
             style: TabStyle.react,
             items: [
-              TabItem(icon: Icons.person, title: 'حسابي'),
               TabItem(icon: Icons.contacts, title: 'اتصل بنا'),
               TabItem(icon: Icons.home, title: 'الرئيسية'),
               TabItem(icon: Icons.payment, title: 'طرق الدفع'),
