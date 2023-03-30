@@ -8,16 +8,16 @@ class change_photo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     File? cv;
+    final hei = MediaQuery.of(context).size.height;
     return Scaffold(
         appBar: AppBar(
             backgroundColor: Color(0xff3A4750), title: Text('تغيير الصور')),
-        body: Padding(
-            padding: const EdgeInsets.all(20.0),
-            child:
-                Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-              Form(
-                  child: Column(children: [
-                GestureDetector(
+        body: Center(
+          child: Column(
+            children: [
+              Container(
+                margin: EdgeInsets.only(top: hei * 0.4, bottom: hei * 0.05),
+                child: GestureDetector(
                   onTap: () async {
                     FilePickerResult? result =
                         await FilePicker.platform.pickFiles();
@@ -28,8 +28,11 @@ class change_photo extends StatelessWidget {
                     }
                   },
                   child: Image.asset('assets/signup3.png'),
-                )
-              ]))
-            ])));
+                ),
+              ),
+              ElevatedButton(onPressed: () {}, child: Text('تأكيد التعديل'))
+            ],
+          ),
+        ));
   }
 }
