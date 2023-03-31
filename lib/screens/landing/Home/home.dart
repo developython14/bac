@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mucap/screens/landing/Home/componanats/levels.dart';
 import 'package:mucap/screens/landing/Home/componanats/story.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
@@ -56,78 +57,24 @@ class Home extends StatelessWidget {
             title: 'السنة الثالثة ثانوي ',
             color: Color.fromARGB(255, 217, 72, 62),
             abre: '3as',
+            path: '/filieres',
           ),
           levels_componant(
             hei: hei,
             title: 'السنة الثانية  ثانوي ',
             color: Color.fromARGB(255, 210, 227, 24),
             abre: '2as',
+            path: '/filieres',
           ),
           levels_componant(
             hei: hei,
             title: 'السنة الأولى   ثانوي ',
             color: Color.fromARGB(255, 222, 46, 175),
             abre: '1as',
+            path: '/filieres',
           )
         ],
       ),
     ));
-  }
-}
-
-class levels_componant extends StatelessWidget {
-  const levels_componant({
-    Key? key,
-    this.title = 'sala',
-    this.color = Colors.red,
-    this.abre = 'rem',
-    required this.hei,
-  }) : super(key: key);
-
-  final double hei;
-  final String title;
-  final Color color;
-  final String abre;
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 20),
-      child: Row(
-        children: [
-          Expanded(
-            child: Container(
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(10),
-              ),
-              height: 80,
-              child: Center(
-                child: Text(
-                  title,
-                  style: TextStyle(color: Colors.black),
-                ),
-              ),
-            ),
-          ),
-          Container(
-            decoration: BoxDecoration(
-              color: color,
-              borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(10),
-                  bottomLeft: Radius.circular(10)),
-            ),
-            height: 80,
-            width: hei * 0.075,
-            child: Center(
-              child: Text(
-                abre,
-                style: TextStyle(color: Colors.white),
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
   }
 }
