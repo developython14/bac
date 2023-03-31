@@ -126,6 +126,12 @@ class _CoursState extends State<Cours> {
   late CustomVideoPlayerController _customVideoPlayerController;
   final CustomVideoPlayerSettings _customVideoPlayerSettings =
       const CustomVideoPlayerSettings();
+  final _headerStyle = const TextStyle(
+      color: Color(0xffffffff), fontSize: 15, fontWeight: FontWeight.bold);
+  final _contentStyleHeader = const TextStyle(
+      color: Color(0xff999999), fontSize: 14, fontWeight: FontWeight.w700);
+  final _contentStyle = const TextStyle(
+      color: Color(0xff999999), fontSize: 14, fontWeight: FontWeight.normal);
   @override
   void initState() {
     // TODO: implement initState
@@ -148,40 +154,22 @@ class _CoursState extends State<Cours> {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Column(
-        children: [
-          Text('mustapha'),
-          CustomVideoPlayer(
-            customVideoPlayerController: _customVideoPlayerController,
-          ),
-          AccordionPage(),
-        ],
-      ),
-    );
-  }
-}
-
-/// Main example page
-class AccordionPage extends StatelessWidget //__
-{
-  const AccordionPage({Key? key}) : super(key: key);
-
-  final _headerStyle = const TextStyle(
-      color: Color(0xffffffff), fontSize: 15, fontWeight: FontWeight.bold);
-  final _contentStyleHeader = const TextStyle(
-      color: Color(0xff999999), fontSize: 14, fontWeight: FontWeight.w700);
-  final _contentStyle = const TextStyle(
-      color: Color(0xff999999), fontSize: 14, fontWeight: FontWeight.normal);
-
-  @override
-  build(context) => Directionality(
+      home: Directionality(
         textDirection: TextDirection.rtl,
         child: SafeArea(
           child: Scaffold(
-            backgroundColor: Colors.blueGrey[100],
             body: SingleChildScrollView(
               child: Column(
                 children: [
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 10),
+                    child: CustomVideoPlayer(
+                      customVideoPlayerController: _customVideoPlayerController,
+                    ),
+                  ),
+                  ElevatedButton(
+                      onPressed: () {},
+                      child: Text('حمل ملف الملخص الشامل من هنا')),
                   chaipte(headerStyle: _headerStyle),
                   chaipte(headerStyle: _headerStyle),
                   chaipte(headerStyle: _headerStyle),
@@ -191,9 +179,12 @@ class AccordionPage extends StatelessWidget //__
             ),
           ),
         ),
-      );
+      ),
+    );
+  }
 }
 
+/// Main example pag
 class chaipte extends StatelessWidget {
   const chaipte({
     Key? key,
