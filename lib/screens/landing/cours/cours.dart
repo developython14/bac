@@ -81,7 +81,8 @@ class chaipte extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Accordion(
-      contentBackgroundColor: Colors.red,
+      paddingListBottom: 0,
+      paddingListTop: 0,
       maxOpenSections: 1,
       headerBackgroundColorOpened: Colors.black54,
       scaleWhenAnimating: true,
@@ -91,10 +92,9 @@ class chaipte extends StatelessWidget {
       sectionClosingHapticFeedback: SectionHapticFeedback.light,
       children: [
         AccordionSection(
-          isOpen: true,
           leftIcon: const Icon(Icons.insights_rounded, color: Colors.white),
-          headerBackgroundColor: Colors.black,
-          headerBackgroundColorOpened: Colors.red,
+          headerBackgroundColor: Colors.red,
+          headerBackgroundColorOpened: Colors.black,
           header: Text('تعيين كمية المادة عن طريق قياس الناقلية',
               style: _headerStyle),
           content: Column(
