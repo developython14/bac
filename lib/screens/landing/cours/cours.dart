@@ -49,31 +49,82 @@ class AccordionPage extends StatelessWidget //__
       color: Color(0xff999999), fontSize: 14, fontWeight: FontWeight.normal);
 
   @override
-  build(context) => Scaffold(
-        backgroundColor: Colors.blueGrey[100],
-        body: Accordion(
-          maxOpenSections: 2,
-          headerBackgroundColorOpened: Colors.black54,
-          scaleWhenAnimating: true,
-          openAndCloseAnimation: true,
-          headerPadding:
-              const EdgeInsets.symmetric(vertical: 7, horizontal: 15),
-          sectionOpeningHapticFeedback: SectionHapticFeedback.heavy,
-          sectionClosingHapticFeedback: SectionHapticFeedback.light,
-          children: [
-            AccordionSection(
-              isOpen: true,
-              leftIcon: const Icon(Icons.insights_rounded, color: Colors.white),
-              headerBackgroundColor: Colors.black,
-              headerBackgroundColorOpened: Colors.red,
-              header: Text('Introduction', style: _headerStyle),
-              content: Text('ZA3IIM', style: _contentStyle),
-              contentHorizontalPadding: 20,
-              contentBorderWidth: 1,
-              // onOpenSection: () => print('onOpenSection ...'),
-              // onCloseSection: () => print('onCloseSection ...'),
+  build(context) => Directionality(
+        textDirection: TextDirection.rtl,
+        child: SafeArea(
+          child: Scaffold(
+            backgroundColor: Colors.blueGrey[100],
+            body: SingleChildScrollView(
+              child: Column(
+                children: [
+                  chaipte(headerStyle: _headerStyle),
+                  chaipte(headerStyle: _headerStyle),
+                  chaipte(headerStyle: _headerStyle),
+                  chaipte(headerStyle: _headerStyle),
+                ],
+              ),
             ),
-          ],
+          ),
         ),
       );
+}
+
+class chaipte extends StatelessWidget {
+  const chaipte({
+    Key? key,
+    required TextStyle headerStyle,
+  })  : _headerStyle = headerStyle,
+        super(key: key);
+
+  final TextStyle _headerStyle;
+
+  @override
+  Widget build(BuildContext context) {
+    return Accordion(
+      contentBackgroundColor: Colors.red,
+      maxOpenSections: 1,
+      headerBackgroundColorOpened: Colors.black54,
+      scaleWhenAnimating: true,
+      openAndCloseAnimation: true,
+      headerPadding: const EdgeInsets.symmetric(vertical: 7, horizontal: 15),
+      sectionOpeningHapticFeedback: SectionHapticFeedback.heavy,
+      sectionClosingHapticFeedback: SectionHapticFeedback.light,
+      children: [
+        AccordionSection(
+          isOpen: true,
+          leftIcon: const Icon(Icons.insights_rounded, color: Colors.white),
+          headerBackgroundColor: Colors.black,
+          headerBackgroundColorOpened: Colors.red,
+          header: Text('تعيين كمية المادة عن طريق قياس الناقلية',
+              style: _headerStyle),
+          content: Column(
+            children: [
+              Row(
+                children: [
+                  Icon(Icons.play_circle_filled),
+                  Text('درس شامل الجزء1')
+                ],
+              ),
+              Row(
+                children: [
+                  Icon(Icons.play_circle_filled),
+                  Text('درس شامل الجزء1')
+                ],
+              ),
+              Row(
+                children: [
+                  Icon(Icons.play_circle_filled),
+                  Text('درس شامل الجزء1')
+                ],
+              ),
+            ],
+          ),
+          contentHorizontalPadding: 1,
+          contentBorderWidth: 1,
+          // onOpenSection: () => print('onOpenSection ...'),
+          // onCloseSection: () => print('onCloseSection ...'),
+        ),
+      ],
+    );
+  }
 } //__
