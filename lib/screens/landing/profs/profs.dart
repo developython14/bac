@@ -14,8 +14,10 @@ class profs extends StatelessWidget {
         body: SingleChildScrollView(
             child: Padding(
           padding: const EdgeInsets.all(20.0),
-          child: Center(
+          child: Container(
+            height: MediaQuery.of(context).size.height,
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 module_componant(
                   hei: hei,

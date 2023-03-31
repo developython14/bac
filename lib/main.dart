@@ -186,7 +186,7 @@ class _MyAppState extends State<MyApp> {
               '/filieres': (context) => filliers(),
               '/modules': (context) => modules(),
               '/profs': (context) => profs(),
-              '/cours': (context) => Cours(),
+              '/cours': (context) => AccordionPage(),
               '/faq': (context) => faq(),
               '/change_photo': (context) => change_photo(),
             },
