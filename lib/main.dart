@@ -177,7 +177,7 @@ class _MyAppState extends State<MyApp> {
                 textTheme: GoogleFonts.cairoTextTheme(
                   Theme.of(context).textTheme,
                 )),
-            initialRoute: '/',
+            initialRoute: '/cours',
             routes: {
               '/': (context) => Landing(),
               '/stories': (context) => MoreStories(),
@@ -186,10 +186,10 @@ class _MyAppState extends State<MyApp> {
               '/filieres': (context) => filliers(),
               '/modules': (context) => modules(),
               '/profs': (context) => profs(),
-              '/cours': (context) => AccordionPage(),
+              '/cours': (context) => Cours(),
               '/faq': (context) => faq(),
               '/change_photo': (context) => change_photo(),
-              '/faq': (context) => MyHomePage(),
+              '/test': (context) => MyHomePage(),
             },
           );
   }

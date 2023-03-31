@@ -6,6 +6,22 @@ import 'package:appinio_video_player/appinio_video_player.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 
+String videoUrlLandscape =
+    "https://flutter.github.io/assets-for-api-docs/assets/videos/bee.mp4";
+String videoUrlPortrait =
+    'https://assets.mixkit.co/videos/preview/mixkit-a-girl-blowing-a-bubble-gum-at-an-amusement-park-1226-large.mp4';
+String longVideo =
+    "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4";
+
+String video720 =
+    "https://www.sample-videos.com/video123/mp4/720/big_buck_bunny_720p_10mb.mp4";
+
+String video480 =
+    "https://www.sample-videos.com/video123/mp4/480/big_buck_bunny_480p_10mb.mp4";
+
+String video240 =
+    "https://www.sample-videos.com/video123/mp4/240/big_buck_bunny_240p_10mb.mp4";
+
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key}) : super(key: key);
 
@@ -98,24 +114,31 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 }
 
-String videoUrlLandscape =
-    "https://flutter.github.io/assets-for-api-docs/assets/videos/bee.mp4";
-String videoUrlPortrait =
-    'https://assets.mixkit.co/videos/preview/mixkit-a-girl-blowing-a-bubble-gum-at-an-amusement-park-1226-large.mp4';
-String longVideo =
-    "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4";
+class Cours extends StatefulWidget {
+  const Cours({Key? key}) : super(key: key);
 
-String video720 =
-    "https://www.sample-videos.com/video123/mp4/720/big_buck_bunny_720p_10mb.mp4";
+  @override
+  State<Cours> createState() => _CoursState();
+}
 
-String video480 =
-    "https://www.sample-videos.com/video123/mp4/480/big_buck_bunny_480p_10mb.mp4";
-
-String video240 =
-    "https://www.sample-videos.com/video123/mp4/240/big_buck_bunny_240p_10mb.mp4";
-
-class AccordionApp extends StatelessWidget {
-  const AccordionApp({Key? key}) : super(key: key);
+class _CoursState extends State<Cours> {
+  late VideoPlayerController _videoPlayerController;
+  late CustomVideoPlayerController _customVideoPlayerController;
+  final CustomVideoPlayerSettings _customVideoPlayerSettings =
+      const CustomVideoPlayerSettings();
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _videoPlayerController = VideoPlayerController.network(
+      longVideo,
+    )..initialize().then((value) => setState(() {}));
+    _customVideoPlayerController = CustomVideoPlayerController(
+      context: context,
+      videoPlayerController: _videoPlayerController,
+      customVideoPlayerSettings: _customVideoPlayerSettings,
+    );
+  }
 
   // This widget is the root of your application.
   @override
@@ -125,7 +148,15 @@ class AccordionApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const AccordionPage(),
+      home: Column(
+        children: [
+          Text('mustapha'),
+          CustomVideoPlayer(
+            customVideoPlayerController: _customVideoPlayerController,
+          ),
+          AccordionPage(),
+        ],
+      ),
     );
   }
 }
