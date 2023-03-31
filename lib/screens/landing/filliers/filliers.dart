@@ -14,30 +14,34 @@ class filliers extends StatelessWidget {
         body: SingleChildScrollView(
             child: Padding(
           padding: const EdgeInsets.all(20.0),
-          child: Column(
-            children: [
-              levels_componant(
-                hei: hei,
-                title: 'علوم تجريبية',
-                color: Colors.green,
-                abre: '3ass',
-                path: '/modules',
-              ),
-              levels_componant(
-                hei: hei,
-                title: 'علوم تجريبية',
-                color: Colors.green,
-                abre: '3ass',
-                path: '/modules',
-              ),
-              levels_componant(
-                hei: hei,
-                title: 'علوم تجريبية',
-                color: Colors.green,
-                abre: '3ass',
-                path: '/modules',
-              )
-            ],
+          child: Container(
+            height: MediaQuery.of(context).size.height,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                levels_componant(
+                  hei: hei,
+                  title: 'علوم تجريبية',
+                  color: Colors.green,
+                  abre: '3ass',
+                  path: '/modules',
+                ),
+                levels_componant(
+                  hei: hei,
+                  title: 'علوم تجريبية',
+                  color: Colors.green,
+                  abre: '3ass',
+                  path: '/modules',
+                ),
+                levels_componant(
+                  hei: hei,
+                  title: 'علوم تجريبية',
+                  color: Colors.green,
+                  abre: '3ass',
+                  path: '/modules',
+                )
+              ],
+            ),
           ),
         )),
       )),
