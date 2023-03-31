@@ -21,6 +21,20 @@ class Home extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+              children: [
+                storybutton(),
+                storybutton(),
+                storybutton(),
+                storybutton(),
+                storybutton(),
+                storybutton(),
+                storybutton()
+              ],
+            ),
+          ),
           CarouselSlider(
               items: items,
               options: CarouselOptions(
@@ -38,20 +52,6 @@ class Home extends StatelessWidget {
                 enlargeFactor: 0.3,
                 scrollDirection: Axis.horizontal,
               )),
-          SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Row(
-              children: [
-                storybutton(),
-                storybutton(),
-                storybutton(),
-                storybutton(),
-                storybutton(),
-                storybutton(),
-                storybutton()
-              ],
-            ),
-          ),
           levels_componant(
             hei: hei,
             title: 'السنة الثالثة ثانوي ',

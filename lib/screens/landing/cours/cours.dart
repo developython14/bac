@@ -5,13 +5,13 @@ import 'package:appinio_video_player/appinio_video_player.dart';
 import 'package:appinio_video_player/appinio_video_player.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
+import 'package:vimeo_player_flutter/vimeo_player_flutter.dart';
 
 String videoUrlLandscape =
     "https://flutter.github.io/assets-for-api-docs/assets/videos/bee.mp4";
 String videoUrlPortrait =
     'https://assets.mixkit.co/videos/preview/mixkit-a-girl-blowing-a-bubble-gum-at-an-amusement-park-1226-large.mp4';
-String longVideo =
-    "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4";
+String longVideo = "https://vimeo.com/807698541";
 
 String video720 =
     "https://www.sample-videos.com/video123/mp4/720/big_buck_bunny_720p_10mb.mp4";
@@ -160,6 +160,12 @@ class _CoursState extends State<Cours> {
                   padding: const EdgeInsets.symmetric(vertical: 10),
                   child: CustomVideoPlayer(
                     customVideoPlayerController: _customVideoPlayerController,
+                  ),
+                ),
+                Container(
+                  height: 250,
+                  child: VimeoPlayer(
+                    videoId: '807698541',
                   ),
                 ),
                 ElevatedButton(
