@@ -189,7 +189,6 @@ class _MyAppState extends State<MyApp> {
               '/cours': (context) => Cours(),
               '/faq': (context) => faq(),
               '/change_photo': (context) => change_photo(),
-              '/test': (context) => MyHomePage(),
             },
           );
   }
