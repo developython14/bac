@@ -51,7 +51,24 @@ class Home extends StatelessWidget {
               ],
             ),
           ),
-          levels_componant(hei: hei)
+          levels_componant(
+            hei: hei,
+            title: 'السنة الثالثة ثانوي ',
+            color: Color.fromARGB(255, 217, 72, 62),
+            abre: '3as',
+          ),
+          levels_componant(
+            hei: hei,
+            title: 'السنة الثانية  ثانوي ',
+            color: Color.fromARGB(255, 210, 227, 24),
+            abre: '2as',
+          ),
+          levels_componant(
+            hei: hei,
+            title: 'السنة الأولى   ثانوي ',
+            color: Color.fromARGB(255, 222, 46, 175),
+            abre: '1as',
+          )
         ],
       ),
     ));
@@ -61,10 +78,16 @@ class Home extends StatelessWidget {
 class levels_componant extends StatelessWidget {
   const levels_componant({
     Key? key,
+    this.title = 'sala',
+    this.color = Colors.red,
+    this.abre = 'rem',
     required this.hei,
   }) : super(key: key);
 
   final double hei;
+  final String title;
+  final Color color;
+  final String abre;
 
   @override
   Widget build(BuildContext context) {
@@ -75,34 +98,32 @@ class levels_componant extends StatelessWidget {
           Expanded(
             child: Container(
               decoration: BoxDecoration(
+                color: Colors.white,
                 borderRadius: BorderRadius.circular(10),
-                border: Border(
-                  left: BorderSide(
-                    color: Colors.green,
-                    width: 3,
-                  ),
-                ),
               ),
-              height: 50,
-              child: Text(
-                'السنة الثالثة ثانوي ',
+              height: 80,
+              child: Center(
+                child: Text(
+                  title,
+                  style: TextStyle(color: Colors.black),
+                ),
               ),
             ),
           ),
           Container(
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-              border: Border(
-                left: BorderSide(
-                  color: Colors.green,
-                  width: 3,
-                ),
-              ),
+              color: color,
+              borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(10),
+                  bottomLeft: Radius.circular(10)),
             ),
-            height: 50,
-            width: hei * 0.05,
+            height: 80,
+            width: hei * 0.075,
             child: Center(
-              child: Text('3AM'),
+              child: Text(
+                abre,
+                style: TextStyle(color: Colors.white),
+              ),
             ),
           ),
         ],
