@@ -4,7 +4,6 @@ class module_componant extends StatelessWidget {
   const module_componant({
     Key? key,
     this.title = 'sala',
-    this.color = Colors.red,
     this.abre = 'rem',
     this.path = 'rem',
     required this.hei,
@@ -12,7 +11,6 @@ class module_componant extends StatelessWidget {
 
   final double hei;
   final String title;
-  final Color color;
   final String abre;
   final String path;
 
@@ -42,19 +40,10 @@ class module_componant extends StatelessWidget {
               ),
             ),
             Container(
-              decoration: BoxDecoration(
-                color: color,
-                borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(10),
-                    bottomLeft: Radius.circular(10)),
-              ),
               height: 80,
               width: hei * 0.075,
               child: Center(
-                child: Text(
-                  abre,
-                  style: TextStyle(color: Colors.white),
-                ),
+                child: CircleAvatar(backgroundImage: NetworkImage(abre)),
               ),
             ),
           ],

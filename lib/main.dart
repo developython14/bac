@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:mucap/screens/landing/Home/componanats/story.dart';
 import 'package:mucap/screens/landing/change_photo/change_photo.dart';
+import 'package:mucap/screens/landing/cours/cours.dart';
 import 'package:mucap/screens/landing/faq/faq.dart';
 import 'package:mucap/screens/landing/filliers/filliers.dart';
 import 'package:mucap/screens/landing/landing.dart';
 import 'package:mucap/screens/landing/login/login.dart';
 import 'package:mucap/screens/landing/modules/modules.dart';
+import 'package:mucap/screens/landing/profs/profs.dart';
 import 'package:mucap/screens/landing/signup/signup.dart';
 import 'package:palestine_trusted_device/palestine_trusted_device.dart';
 import 'dart:async';
@@ -183,8 +185,8 @@ class _MyAppState extends State<MyApp> {
               '/signup': (context) => MyRegister(),
               '/filieres': (context) => filliers(),
               '/modules': (context) => modules(),
-              '/profs': (context) => MyRegister(),
-              '/cours': (context) => MyRegister(),
+              '/profs': (context) => profs(),
+              '/cours': (context) => Cours(),
               '/faq': (context) => faq(),
               '/change_photo': (context) => change_photo(),
             },

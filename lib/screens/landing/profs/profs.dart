@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mucap/screens/landing/modules/componant/module.dart';
 
-class modules extends StatelessWidget {
-  const modules({Key? key}) : super(key: key);
+class profs extends StatelessWidget {
+  const profs({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,17 +19,17 @@ class modules extends StatelessWidget {
               children: [
                 module_componant(
                   hei: hei,
-                  title: 'العلوم الفيزيائية',
+                  title: 'الاستاذ مصطفى بلقاسم',
                   abre:
                       'https://2as.ency-education.com/uploads/1/0/9/0/1090282/icon-new-english_orig.png',
-                  path: '/profs',
+                  path: '/cours',
                 ),
                 module_componant(
                   hei: hei,
-                  title: ' العلوم الطبيعية ',
+                  title: 'الاستاذ بلال يحياوي',
                   abre:
-                      'https://2as.ency-education.com/uploads/1/0/9/0/1090282/icon-new-sciences_orig.png',
-                  path: '/profs',
+                      'blob:https://web.telegram.org/dc999c9f-cb24-4651-b3c3-3e4c893644b8',
+                  path: '/cours',
                 ),
               ],
             ),
