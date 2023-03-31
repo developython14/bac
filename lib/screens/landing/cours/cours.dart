@@ -149,42 +149,35 @@ class _CoursState extends State<Cours> {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: Directionality(
-        textDirection: TextDirection.rtl,
-        child: SafeArea(
-          child: Scaffold(
-            body: SingleChildScrollView(
-              child: Column(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 10),
-                    child: CustomVideoPlayer(
-                      customVideoPlayerController: _customVideoPlayerController,
-                    ),
+    return Directionality(
+      textDirection: TextDirection.rtl,
+      child: SafeArea(
+        child: Scaffold(
+          body: SingleChildScrollView(
+            child: Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 10),
+                  child: CustomVideoPlayer(
+                    customVideoPlayerController: _customVideoPlayerController,
                   ),
-                  ElevatedButton(
-                      onPressed: () {},
-                      child: Text('حمل ملف الملخص الشامل من هنا')),
-                  chaipte(headerStyle: _headerStyle),
-                  chaipte(headerStyle: _headerStyle),
-                  chaipte(headerStyle: _headerStyle),
-                  chaipte(headerStyle: _headerStyle),
-                  chaipte(headerStyle: _headerStyle),
-                  chaipte(headerStyle: _headerStyle),
-                  chaipte(headerStyle: _headerStyle),
-                  chaipte(headerStyle: _headerStyle),
-                  chaipte(headerStyle: _headerStyle),
-                  chaipte(headerStyle: _headerStyle),
-                  chaipte(headerStyle: _headerStyle),
-                  chaipte(headerStyle: _headerStyle),
-                  Text('freef fir')
-                ],
-              ),
+                ),
+                ElevatedButton(
+                    onPressed: () {},
+                    child: Text('حمل ملف الملخص الشامل من هنا')),
+                chaipte(headerStyle: _headerStyle),
+                chaipte(headerStyle: _headerStyle),
+                chaipte(headerStyle: _headerStyle),
+                chaipte(headerStyle: _headerStyle),
+                chaipte(headerStyle: _headerStyle),
+                chaipte(headerStyle: _headerStyle),
+                chaipte(headerStyle: _headerStyle),
+                chaipte(headerStyle: _headerStyle),
+                chaipte(headerStyle: _headerStyle),
+                chaipte(headerStyle: _headerStyle),
+                chaipte(headerStyle: _headerStyle),
+                chaipte(headerStyle: _headerStyle),
+              ],
             ),
           ),
         ),
