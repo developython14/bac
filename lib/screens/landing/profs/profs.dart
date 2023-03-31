@@ -21,14 +21,14 @@ class profs extends StatelessWidget {
                   hei: hei,
                   title: 'الاستاذ مصطفى بلقاسم',
                   abre:
-                      'https://2as.ency-education.com/uploads/1/0/9/0/1090282/icon-new-english_orig.png',
+                      'https://th.bing.com/th/id/OIP.a_C9v1H7RBbVyFjU4udThgHaKX?pid=ImgDet&rs=1',
                   path: '/cours',
                 ),
                 module_componant(
                   hei: hei,
                   title: 'الاستاذ بلال يحياوي',
                   abre:
-                      'blob:https://web.telegram.org/dc999c9f-cb24-4651-b3c3-3e4c893644b8',
+                      'https://th.bing.com/th/id/R.0a4d94b23f386c887f4a2236409edbf9?rik=q09IyvUG6d8ljA&pid=ImgRaw&r=0',
                   path: '/cours',
                 ),
               ],
