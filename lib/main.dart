@@ -5,6 +5,7 @@ import 'package:mucap/screens/landing/faq/faq.dart';
 import 'package:mucap/screens/landing/filliers/filliers.dart';
 import 'package:mucap/screens/landing/landing.dart';
 import 'package:mucap/screens/landing/login/login.dart';
+import 'package:mucap/screens/landing/modules/modules.dart';
 import 'package:mucap/screens/landing/signup/signup.dart';
 import 'package:palestine_trusted_device/palestine_trusted_device.dart';
 import 'dart:async';
@@ -181,7 +182,7 @@ class _MyAppState extends State<MyApp> {
               '/login': (context) => MyLogin(),
               '/signup': (context) => MyRegister(),
               '/filieres': (context) => filliers(),
-              '/modules': (context) => MyRegister(),
+              '/modules': (context) => modules(),
               '/profs': (context) => MyRegister(),
               '/cours': (context) => MyRegister(),
               '/faq': (context) => faq(),

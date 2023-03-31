@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:mucap/screens/landing/Home/componanats/levels.dart';
+import 'package:mucap/screens/landing/modules/componant/module.dart';
 
-class filliers extends StatelessWidget {
-  const filliers({Key? key}) : super(key: key);
+class modules extends StatelessWidget {
+  const modules({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -13,25 +13,25 @@ class filliers extends StatelessWidget {
           child: Scaffold(
         body: SingleChildScrollView(
             child: Padding(
-          padding: const EdgeInsets.all(30.0),
+          padding: const EdgeInsets.all(20.0),
           child: Center(
             child: Column(
               children: [
-                levels_componant(
+                module_componant(
                   hei: hei,
                   title: 'علوم تجريبية',
                   color: Colors.green,
                   abre: '3ass',
                   path: '/modules',
                 ),
-                levels_componant(
+                module_componant(
                   hei: hei,
                   title: 'علوم تجريبية',
                   color: Colors.green,
                   abre: '3ass',
                   path: '/modules',
                 ),
-                levels_componant(
+                module_componant(
                   hei: hei,
                   title: 'علوم تجريبية',
                   color: Colors.green,
