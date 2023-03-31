@@ -7,20 +7,23 @@ class filliers extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final hei = MediaQuery.of(context).size.height;
-    return SafeArea(
-        child: Scaffold(
-      body: SingleChildScrollView(
-          child: Column(
-        children: [
-          levels_componant(
-            hei: hei,
-            title: 'علوم تجريبية',
-            color: Colors.green,
-            abre: '3ass',
-            path: '/modules',
-          )
-        ],
+    return Directionality(
+      textDirection: TextDirection.rtl,
+      child: SafeArea(
+          child: Scaffold(
+        body: SingleChildScrollView(
+            child: Column(
+          children: [
+            levels_componant(
+              hei: hei,
+              title: 'علوم تجريبية',
+              color: Colors.green,
+              abre: '3ass',
+              path: '/modules',
+            )
+          ],
+        )),
       )),
-    ));
+    );
   }
 }
