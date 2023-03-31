@@ -189,6 +189,7 @@ class _MyAppState extends State<MyApp> {
               '/cours': (context) => AccordionPage(),
               '/faq': (context) => faq(),
               '/change_photo': (context) => change_photo(),
+              '/faq': (context) => MyHomePage(),
             },
           );
   }
