@@ -3,7 +3,7 @@ import 'package:accordion/accordion.dart';
 import 'package:accordion/controllers.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
-import 'package:vimeo_video_player/vimeo_video_player.dart';
+import 'package:pod_player/pod_player.dart';
 
 class Cours extends StatefulWidget {
   const Cours({Key? key}) : super(key: key);
@@ -19,10 +19,22 @@ class _CoursState extends State<Cours> {
       color: Color(0xff999999), fontSize: 14, fontWeight: FontWeight.w700);
   final _contentStyle = const TextStyle(
       color: Color(0xff999999), fontSize: 14, fontWeight: FontWeight.normal);
+  late final PodPlayerController controller;
+
   @override
   void initState() {
     // TODO: implement initState
+    controller = PodPlayerController(
+      playVideoFrom: PlayVideoFrom.vimeo('807698541'),
+    )..initialise();
     super.initState();
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    controller.dispose();
+    super.dispose();
   }
 
   // This widget is the root of your application.
@@ -35,9 +47,7 @@ class _CoursState extends State<Cours> {
           body: SingleChildScrollView(
             child: Column(
               children: [
-                VimeoVideoPlayer(
-                  url: 'https://vimeo.com/807698541',
-                ),
+                PodVideoPlayer(controller: controller),
                 ElevatedButton(
                     onPressed: () {},
                     child: Text('حمل ملف الملخص الشامل من هنا')),

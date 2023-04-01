@@ -47,8 +47,7 @@ dependencies:
   file_picker: ^5.2.6
   accordion: ^2.5.1
   appinio_video_player: ^1.2.0
-  vimeo_video_player: ^0.0.8
-
+  pod_player: ^0.1.0
 
 
 dev_dependencies:

@@ -88,6 +88,8 @@ class _MoreStoriesState extends State<MoreStories> {
             caption: "Hello, from the other side2",
             controller: storyController,
           ),
+          StoryItem.pageVideo('https://vimeo.com/807698541',
+              controller: storyController)
         ],
         onStoryShow: (s) {
           print("Showing a story");
