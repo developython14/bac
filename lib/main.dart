@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mucap/providers/stories/stories.dart';
 import 'package:mucap/screens/landing/Home/componanats/story.dart';
 import 'package:mucap/screens/landing/change_photo/change_photo.dart';
 import 'package:mucap/screens/landing/cours/cours.dart';
@@ -167,7 +168,9 @@ class _MyAppState extends State<MyApp> {
             child: Text('sorry not run on virtuel machine'),
           )
         : MultiProvider(
-            providers: [],
+            providers: [
+              ChangeNotifierProvider(create: (_) => Storiesproviderd()),
+            ],
             child: MaterialApp(
               title: 'HackElbac',
               theme: ThemeData(

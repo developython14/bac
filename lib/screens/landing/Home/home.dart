@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:mucap/providers/stories/stories.dart';
 import 'package:mucap/screens/landing/Home/componanats/levels.dart';
 import 'package:mucap/screens/landing/Home/componanats/story.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:provider/provider.dart';
 
 class Home extends StatelessWidget {
   const Home({
@@ -10,6 +12,9 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    if (context.watch<Storiesproviderd>().status == 'idle') {
+      context.watch<Storiesproviderd>().getallstories();
+    }
     var items = [
       Image.network(
           'https://th.bing.com/th/id/OIP.ejJwy93WhLu6uCZ32Y8pCAHaDH?pid=ImgDet&rs=1'),
@@ -24,15 +29,13 @@ class Home extends StatelessWidget {
           SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             child: Row(
-              children: [
-                storybutton(),
-                storybutton(),
-                storybutton(),
-                storybutton(),
-                storybutton(),
-                storybutton(),
-                storybutton()
-              ],
+              children: context.watch<Storiesproviderd>().status == 'loaded'
+                  ? context
+                      .watch<Storiesproviderd>()
+                      .list_stories
+                      .map((e) => storybutton())
+                      .toList()
+                  : [Text('Loading ...')],
             ),
           ),
           CarouselSlider(
