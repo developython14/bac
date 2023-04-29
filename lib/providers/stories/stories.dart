@@ -35,8 +35,8 @@ getdata(ref) async {
     print(jsonResponse);
     for (var i = 0; i < jsonResponse.length; i++) {
       articles.add(jsonResponse[i]);
-      ref.add(Service(jsonResponse[i]['_id'], jsonResponse[i]['ar'],
-          jsonResponse[i]['en']));
+      ref.add(
+          jsonResponse[i]['_id'], jsonResponse[i]['ar'], jsonResponse[i]['en']);
     }
     return articles;
   } else {
