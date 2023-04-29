@@ -9,6 +9,7 @@ import 'package:mucap/screens/landing/login/login.dart';
 import 'package:mucap/screens/landing/modules/modules.dart';
 import 'package:mucap/screens/landing/profs/profs.dart';
 import 'package:mucap/screens/landing/signup/signup.dart';
+import 'package:mucap/screens/landing/test.dart';
 import 'package:palestine_trusted_device/palestine_trusted_device.dart';
 import 'dart:async';
 import 'dart:developer' as developer;
@@ -177,7 +178,7 @@ class _MyAppState extends State<MyApp> {
                 textTheme: GoogleFonts.cairoTextTheme(
                   Theme.of(context).textTheme,
                 )),
-            initialRoute: '/cours',
+            initialRoute: '/test',
             routes: {
               '/': (context) => Landing(),
               '/stories': (context) => MoreStories(),
@@ -189,6 +190,7 @@ class _MyAppState extends State<MyApp> {
               '/cours': (context) => Cours(),
               '/faq': (context) => faq(),
               '/change_photo': (context) => change_photo(),
+              '/test': (context) => ListTileExample(),
             },
           );
   }
