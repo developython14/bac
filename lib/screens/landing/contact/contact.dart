@@ -20,9 +20,7 @@ class contatc extends StatelessWidget {
     if (context.watch<Contactsproviderd>().status == 'idle') {
       context.watch<Contactsproviderd>().getallcontacts();
     }
-    List ref = context
-        .watch<Contactsproviderd>()
-        .list_contacts;
+    List ref = context.watch<Contactsproviderd>().list_contacts;
     return Directionality(
       textDirection: TextDirection.rtl,
       child: Scaffold(
@@ -36,18 +34,18 @@ class contatc extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.all(14.0),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: ref.map((e) => contact_tile(
-                                id: e['id'].toString(),
-                                key: ValueKey(e['created']),
-                                title: e['title'],
-                                icon: e['icon_title'],
-                                url_to_show: e['text_to_show'],
-                                url_type: e['type_url'],
-                                url: e['url'],
-                              ))
-                          .toList()),
-            ),
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: ref
+                    .map((e) => contact_tile(
+                          id: e['id'].toString(),
+                          key: ValueKey(e['created']),
+                          title: e['title'],
+                          icon: e['icon_title'],
+                          url_to_show: e['text_to_show'],
+                          url_type: e['type_url'],
+                          url: e['url'],
+                        ))
+                    .toList()),
           ),
         ),
       ),
