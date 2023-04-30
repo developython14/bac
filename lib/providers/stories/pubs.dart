@@ -17,7 +17,8 @@ class Pubsproviderd with ChangeNotifier, DiagnosticableTreeMixin {
   Future<void> getallpubs() async {
     _list_pubs = await getdata();
     _status = 'loaded';
-
+    print('hadi data posted');
+    print(_list_pubs);
     notifyListeners();
   }
 

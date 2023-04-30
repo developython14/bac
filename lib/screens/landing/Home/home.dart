@@ -33,7 +33,8 @@ class Home extends StatelessWidget {
             onTap: () {
               _launchUrl_web(e['url']);
             },
-            child: Image.network(e['image']),
+            child: Image.network(
+                'https://storage.googleapis.com/bacdz/' + e['image']),
           ),
         )
         .toList();
