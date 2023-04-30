@@ -35,6 +35,7 @@ class Home extends StatelessWidget {
                       .list_stories
                       .map((e) => storybutton(
                             title: e['title'],
+                            cover_image: e['page_de_garde'],
                           ))
                       .toList()
                   : [Text('Loading ...')],

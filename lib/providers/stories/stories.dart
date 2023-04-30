@@ -16,6 +16,8 @@ class Storiesproviderd with ChangeNotifier, DiagnosticableTreeMixin {
   Future<void> getallstories() async {
     _list_stories = await getdata();
     _status = 'loaded';
+    print('hadi data');
+    print(_list_stories);
     notifyListeners();
   }
 
