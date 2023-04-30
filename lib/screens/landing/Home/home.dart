@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mucap/providers/content/content.dart';
 import 'package:mucap/providers/stories/pubs.dart';
 import 'package:mucap/providers/stories/stories.dart';
 import 'package:mucap/screens/landing/Home/componanats/levels.dart';
@@ -24,6 +25,7 @@ class Home extends StatelessWidget {
     if (context.watch<Storiesproviderd>().status == 'idle') {
       context.watch<Storiesproviderd>().getallstories();
       context.watch<Pubsproviderd>().getallpubs();
+      context.watch<contenetproviderd>().getallcontenet();
     }
     var items = context
         .watch<Pubsproviderd>()

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mucap/providers/contact/contact.dart';
+import 'package:mucap/providers/content/content.dart';
 import 'package:mucap/providers/stories/pubs.dart';
 import 'package:mucap/providers/stories/stories.dart';
 import 'package:mucap/screens/landing/Home/componanats/story.dart';
@@ -174,6 +175,7 @@ class _MyAppState extends State<MyApp> {
               ChangeNotifierProvider(create: (_) => Storiesproviderd()),
               ChangeNotifierProvider(create: (_) => Pubsproviderd()),
               ChangeNotifierProvider(create: (_) => Contactsproviderd()),
+              ChangeNotifierProvider(create: (_) => contenetproviderd()),
             ],
             child: MaterialApp(
               title: 'HackElbac',
