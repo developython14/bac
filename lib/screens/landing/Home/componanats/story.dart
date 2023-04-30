@@ -70,14 +70,15 @@ class _MoreStoriesState extends State<MoreStories> {
     print(ref);
     return Scaffold(
       body: StoryView(
-        storyItems: [
-          StoryItem.pageImage(
-            url:
-                "https://image.ibb.co/cU4WGx/Omotuo-Groundnut-Soup-braperucci-com-1.jpg",
-            caption: "Still sampling",
-            controller: storyController,
-          ),
-        ],
+        storyItems: ref
+            .map(
+              (e) => StoryItem.pageVideo(
+                'https://assets.mixkit.co/videos/preview/mixkit-man-looks-for-a-tennis-ball-in-supermarket-49356-large.mp4',
+                caption: "Still sampling",
+                controller: storyController,
+              ),
+            )
+            .toList(),
         onStoryShow: (s) {},
         onComplete: () {},
         progressPosition: ProgressPosition.top,

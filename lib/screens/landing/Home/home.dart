@@ -39,6 +39,7 @@ class Home extends StatelessWidget {
                                 ? e['files'][0]
                                 : 'https://storage.googleapis.com/bacdz/' +
                                     e['page_de_garde'],
+                            id: e['id'],
                           ))
                       .toList()
                   : [Text('Loading ...')],

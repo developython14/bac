@@ -21,7 +21,7 @@ class Storiesproviderd with ChangeNotifier, DiagnosticableTreeMixin {
     notifyListeners();
   }
 
-  Future<void> set_id_Stories(id) async {
+  set_id_Stories(id) async {
     _id = id;
     notifyListeners();
   }
