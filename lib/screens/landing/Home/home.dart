@@ -33,7 +33,9 @@ class Home extends StatelessWidget {
                   ? context
                       .watch<Storiesproviderd>()
                       .list_stories
-                      .map((e) => storybutton())
+                      .map((e) => storybutton(
+                            title: e['title'],
+                          ))
                       .toList()
                   : [Text('Loading ...')],
             ),
