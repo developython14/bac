@@ -34,7 +34,7 @@ class Home extends StatelessWidget {
               _launchUrl_web(e['url']);
             },
             child: Image.network(
-                'https://storage.googleapis.com/bacdz/' + e['image']),
+                'https://storage.googleapis.com/bacdz/' + e['image_de_garde']),
           ),
         )
         .toList();

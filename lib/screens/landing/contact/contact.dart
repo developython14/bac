@@ -1,35 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:mucap/providers/contact/contact.dart';
 import 'package:url_launcher/url_launcher.dart';
-
+import 'package:provider/provider.dart';
 import 'package:flutter/foundation.dart';
 
-final Uri _url_email =
-    Uri.parse('mailto: S7QURAN-S@hotmail.com?subject=help&body=New%question');
-final Uri website = Uri.parse('https://rightservices.herokuapp.com/');
-final Uri _url_phone = Uri.parse('tel:+966-563027472');
-final Uri _url_sms = Uri.parse('sms:+966-563027472');
-
-Future<void> _launchUrl_email() async {
-  if (!await launchUrl(_url_email)) {
-    throw 'Could not launch $_url_email';
-  }
-}
-
-Future<void> _launchUrl_phone() async {
-  if (!await launchUrl(_url_phone)) {
-    throw 'Could not launch $_url_phone';
-  }
-}
-
-Future<void> _launchUrl_web() async {
-  if (!await launchUrl(website)) {
-    throw 'Could not launch $website';
-  }
-}
-
-Future<void> _launchUrl_sms() async {
-  if (!await launchUrl(_url_sms)) {
-    throw 'Could not launch $_url_sms';
+Future<void> _launchUrl_url(type, data) async {
+  String url = type + data;
+  final Uri url_launcher = Uri.parse(url);
+  if (!await launchUrl(url_launcher)) {
+    throw 'Could not launch $url_launcher';
   }
 }
 
@@ -38,6 +17,12 @@ class contatc extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    if (context.watch<Contactsproviderd>().status == 'idle') {
+      context.watch<Contactsproviderd>().getallcontacts();
+    }
+    List ref = context
+        .watch<Contactsproviderd>()
+        .list_contacts;
     return Directionality(
       textDirection: TextDirection.rtl,
       child: Scaffold(
@@ -52,79 +37,64 @@ class contatc extends StatelessWidget {
             padding: const EdgeInsets.all(14.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text('الموقع الإلكتروني'),
-                Card(
-                    child: ListTile(
-                  onTap: _launchUrl_web,
-                  leading: Icon(Icons.web),
-                  title: Text('RightServices.com'),
-                  trailing: Icon(Icons.arrow_forward_ios),
-                )),
-                Text(
-                  'البريد الإلكتروني',
-                ),
-                Card(
-                    child: ListTile(
-                  onTap: _launchUrl_email,
-                  leading: Icon(Icons.email),
-                  title: Text('S7QURAN-S@hotmail.com'),
-                  trailing: Icon(Icons.arrow_forward_ios),
-                )),
-                Text(
-                  'رقم الهاتف',
-                ),
-                Card(
-                    child: ListTile(
-                  onTap: _launchUrl_phone,
-                  leading: Icon(Icons.phone),
-                  title: Text('+966-56-302-7472'),
-                  trailing: Icon(Icons.arrow_forward_ios),
-                )),
-                Text(
-                  'الرسائل القصيرة',
-                ),
-                Card(
-                    child: ListTile(
-                  onTap: _launchUrl_sms,
-                  leading: Icon(Icons.sms),
-                  title: Text('+966-56-302-7472'),
-                  trailing: Icon(Icons.arrow_forward_ios),
-                )),
-                Text(
-                  'الرسائل القصيرة',
-                ),
-                Card(
-                    child: ListTile(
-                  onTap: _launchUrl_sms,
-                  leading: Icon(Icons.facebook),
-                  title: Text('الأستاذ بلال'),
-                  trailing: Icon(Icons.arrow_forward_ios),
-                )),
-                Text(
-                  ' إنستغرام',
-                ),
-                Card(
-                    child: ListTile(
-                  onTap: _launchUrl_sms,
-                  leading: Icon(Icons.facebook_outlined),
-                  title: Text('الأستاذ بلال'),
-                  trailing: Icon(Icons.arrow_forward_ios),
-                )),
-                Text(
-                  ' واتس اب  ',
-                ),
-                Card(
-                    child: ListTile(
-                  onTap: _launchUrl_sms,
-                  leading: Icon(Icons.facebook_outlined),
-                  title: Text('الأستاذ بلال'),
-                  trailing: Icon(Icons.arrow_forward_ios),
-                )),
-              ],
+              children: ref.map((e) => contact_tile(
+                                id: e['id'].toString(),
+                                key: ValueKey(e['created']),
+                                title: e['title'],
+                                icon: e['icon_title'],
+                                url_to_show: e['text_to_show'],
+                                url_type: e['type_url'],
+                                url: e['url'],
+                              ))
+                          .toList()),
             ),
           ),
         ),
+      ),
+    );
+  }
+}
+
+class contact_tile extends StatefulWidget {
+  contact_tile({
+    this.id = '',
+    this.title = '',
+    this.icon = '',
+    this.url_to_show = '',
+    this.url_type = '',
+    this.url = '',
+    super.key,
+  });
+  String id;
+  String title;
+  String icon;
+  String url_to_show;
+  String url_type;
+  String url;
+
+  @override
+  State<contact_tile> createState() => _contact_tileState();
+}
+
+class _contact_tileState extends State<contact_tile> {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(widget.title),
+          Card(
+              child: ListTile(
+            onTap: () {
+              _launchUrl_url(widget.url_type, widget.url);
+            },
+            leading: CircleAvatar(
+              backgroundImage: NetworkImage(widget.icon),
+            ),
+            title: Text(widget.url_to_show),
+          )),
+        ],
       ),
     );
   }
