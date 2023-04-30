@@ -35,7 +35,10 @@ class Home extends StatelessWidget {
                       .list_stories
                       .map((e) => storybutton(
                             title: e['title'],
-                            cover_image: e['page_de_garde'],
+                            cover_image: e['page_de_garde'] == ''
+                                ? e['files'][0]
+                                : 'https://storage.googleapis.com/bacdz/' +
+                                    e['page_de_garde'],
                           ))
                       .toList()
                   : [Text('Loading ...')],

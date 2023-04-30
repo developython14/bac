@@ -3,8 +3,8 @@ import 'package:story_view/story_view.dart';
 
 class storybutton extends StatelessWidget {
   storybutton({
-    String title = '',
-    String cover_image = '',
+    this.title = '',
+    this.cover_image = '',
     Key? key,
   }) : super(key: key);
   String? title;
