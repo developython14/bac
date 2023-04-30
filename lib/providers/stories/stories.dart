@@ -9,15 +9,20 @@ import 'package:http/http.dart' as http;
 class Storiesproviderd with ChangeNotifier, DiagnosticableTreeMixin {
   String _status = 'idle';
   List _list_stories = [];
+  int _id = 0;
 
   List get list_stories => _list_stories;
   String get status => _status;
-
+  int get id => _id;
   Future<void> getallstories() async {
     _list_stories = await getdata();
     _status = 'loaded';
-    print('hadi data');
-    print(_list_stories);
+
+    notifyListeners();
+  }
+
+  Future<void> set_id_Stories(id) async {
+    _id = id;
     notifyListeners();
   }
 
