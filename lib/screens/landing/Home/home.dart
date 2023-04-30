@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mucap/providers/ccp/ccp.dart';
 import 'package:mucap/providers/content/content.dart';
 import 'package:mucap/providers/stories/pubs.dart';
 import 'package:mucap/providers/stories/stories.dart';
@@ -26,6 +27,7 @@ class Home extends StatelessWidget {
       context.watch<Storiesproviderd>().getallstories();
       context.watch<Pubsproviderd>().getallpubs();
       context.watch<contenetproviderd>().getallcontenet();
+      context.watch<Ccpproviderd>().getallccp();
     }
     var items = context
         .watch<Pubsproviderd>()

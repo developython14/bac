@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:clipboard/clipboard.dart';
+import 'package:mucap/providers/ccp/ccp.dart';
+import 'package:provider/provider.dart';
 
 class payment extends StatelessWidget {
   const payment({Key? key}) : super(key: key);
@@ -62,8 +64,15 @@ class payment extends StatelessWidget {
                   'اتبع الخطوات الموجودة في الصور',
                   style: TextStyle(fontSize: 18),
                 ),
-                Image.asset('assets/one.jpg'),
-                Image.asset('assets/two.jpg')
+                Column(
+                  children: context
+                      .read<Ccpproviderd>()
+                      .list_ccp
+                      .map(
+                        (e) => Image.network(e['page_de_garde']),
+                      )
+                      .toList(),
+                )
               ],
             ),
           ),
