@@ -1,9 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:mucap/providers/stories/pubs.dart';
 import 'package:mucap/providers/stories/stories.dart';
 import 'package:mucap/screens/landing/Home/componanats/levels.dart';
 import 'package:mucap/screens/landing/Home/componanats/story.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:provider/provider.dart';
+import 'package:url_launcher/url_launcher.dart';
+
+Future<void> _launchUrl_web(url) async {
+  final Uri website = Uri.parse(url);
+  if (!await launchUrl(website)) {
+    throw 'Could not launch $website';
+  }
+}
 
 class Home extends StatelessWidget {
   const Home({
@@ -14,11 +23,21 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     if (context.watch<Storiesproviderd>().status == 'idle') {
       context.watch<Storiesproviderd>().getallstories();
+      context.watch<Pubsproviderd>().getallpubs();
     }
-    var items = [
-      Image.network(
-          'https://th.bing.com/th/id/OIP.ejJwy93WhLu6uCZ32Y8pCAHaDH?pid=ImgDet&rs=1'),
-    ];
+    var items = context
+        .watch<Pubsproviderd>()
+        .list_pubs
+        .map(
+          (e) => GestureDetector(
+            onTap: () {
+              _launchUrl_web(e['url']);
+            },
+            child: Image.network(e['image']),
+          ),
+        )
+        .toList();
+
     final hei = MediaQuery.of(context).size.height;
     return SingleChildScrollView(
         child: Padding(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mucap/providers/stories/pubs.dart';
 import 'package:mucap/providers/stories/stories.dart';
 import 'package:mucap/screens/landing/Home/componanats/story.dart';
 import 'package:mucap/screens/landing/change_photo/change_photo.dart';
@@ -170,6 +171,7 @@ class _MyAppState extends State<MyApp> {
         : MultiProvider(
             providers: [
               ChangeNotifierProvider(create: (_) => Storiesproviderd()),
+              ChangeNotifierProvider(create: (_) => Pubsproviderd()),
             ],
             child: MaterialApp(
               title: 'HackElbac',

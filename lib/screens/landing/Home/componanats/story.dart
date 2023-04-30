@@ -62,12 +62,9 @@ class _MoreStoriesState extends State<MoreStories> {
 
   @override
   Widget build(BuildContext context) {
-    print('hada id');
-    print(context.watch<Storiesproviderd>().id);
     List ref = context
         .watch<Storiesproviderd>()
         .list_stories[context.watch<Storiesproviderd>().id]['files'];
-    print(ref);
     return Scaffold(
       body: StoryView(
         storyItems: ref
