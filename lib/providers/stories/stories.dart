@@ -27,8 +27,7 @@ class Storiesproviderd with ChangeNotifier, DiagnosticableTreeMixin {
 }
 
 Future<List> getdata() async {
-  var test = Uri.parse(Base_url + '/get_stories');
-  print(Base_url + '/get_stories');
+  var test = Uri.parse(Base_url + 'get_stories');
   var response = await http.get(test);
   List articles = [];
   if (response.statusCode == 200) {

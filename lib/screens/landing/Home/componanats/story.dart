@@ -2,9 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:story_view/story_view.dart';
 
 class storybutton extends StatelessWidget {
-  const storybutton({
+  storybutton({
+    String title = '',
+    String cover_image = '',
     Key? key,
   }) : super(key: key);
+  String? title;
+  String? cover_image;
 
   @override
   Widget build(BuildContext context) {
@@ -22,12 +26,11 @@ class storybutton extends StatelessWidget {
                   borderRadius: BorderRadius.circular(50),
                   color: Colors.black,
                   image: DecorationImage(
-                      image: NetworkImage(
-                          "https://image.ibb.co/cU4WGx/Omotuo-Groundnut-Soup-braperucci-com-1.jpg"),
+                      image: NetworkImage(cover_image.toString()),
                       fit: BoxFit.cover),
                   // button text
                 )),
-            Text('النجاح 🤝🤝')
+            Text(title.toString())
           ],
         ),
         onTap: () {
