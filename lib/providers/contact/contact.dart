@@ -17,8 +17,6 @@ class Contactsproviderd with ChangeNotifier, DiagnosticableTreeMixin {
   Future<void> getallcontacts() async {
     _list_contacts = await getdata();
     _status = 'loaded';
-    print('hadi data posted');
-    print(_list_contacts);
     notifyListeners();
   }
 
