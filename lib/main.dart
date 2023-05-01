@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mucap/providers/ccp/ccp.dart';
 import 'package:mucap/providers/contact/contact.dart';
 import 'package:mucap/providers/content/content.dart';
+import 'package:mucap/providers/device/device_info.dart';
 import 'package:mucap/providers/stories/pubs.dart';
 import 'package:mucap/providers/stories/stories.dart';
 import 'package:mucap/screens/landing/Home/componanats/story.dart';
@@ -56,6 +57,8 @@ class _MyAppState extends State<MyApp> {
         if (Platform.isAndroid) {
           deviceData =
               _readAndroidBuildData(await deviceInfoPlugin.androidInfo);
+          print('hada l id ');
+          print(context.watch<device_infoproviderd>().device_id);
         } else if (Platform.isIOS) {
           deviceData = _readIosDeviceInfo(await deviceInfoPlugin.iosInfo);
         }
@@ -178,6 +181,7 @@ class _MyAppState extends State<MyApp> {
               ChangeNotifierProvider(create: (_) => Contactsproviderd()),
               ChangeNotifierProvider(create: (_) => contenetproviderd()),
               ChangeNotifierProvider(create: (_) => Ccpproviderd()),
+              ChangeNotifierProvider(create: (_) => device_infoproviderd()),
             ],
             child: MaterialApp(
               title: 'HackElbac',
