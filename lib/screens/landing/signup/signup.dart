@@ -3,6 +3,8 @@ import 'dart:convert' as convert;
 import 'package:http/http.dart' as http;
 import 'dart:io';
 import 'package:future_progress_dialog/future_progress_dialog.dart';
+import 'package:mucap/models/constantes/const.dart';
+import 'package:alert/alert.dart';
 
 class MyRegister extends StatefulWidget {
   const MyRegister({Key? key}) : super(key: key);
@@ -17,26 +19,18 @@ class _MyRegisterState extends State<MyRegister> {
   String? confirm_password = '';
 
   Future<void> add_new_contact() async {
-    final url = Uri.parse('https://servicessaudi.de.r.appspot.com/contacts/');
+    var datatosend = {
+      'username': username.toString(),
+      'password': password.toString()
+    };
+
+    final url = Uri.parse(Base_url + 'create_account/');
     var request = http.MultipartRequest('POST', url);
     final headers = {'Content-type': 'multipart/form-data'};
     request.headers.addAll(headers);
     request.fields.addAll(datatosend);
-    try {
-      final photo = http.MultipartFile.fromBytes(
-          'icon_title', await cv!.readAsBytes(),
-          filename: cv!.path.split("/").last);
-      request.files.add(photo);
-    } catch (e) {
-      print('KAYN ERROR');
-      print(e);
-    }
-    print('hadi');
-    print(datatosend);
-
     var push = await request.send();
     var response = await http.Response.fromStream(push);
-
     var jsonResponse = convert.jsonDecode(response.body);
     print(jsonResponse);
   }
@@ -75,6 +69,11 @@ class _MyRegisterState extends State<MyRegister> {
                       child: Column(
                         children: [
                           TextField(
+                            onChanged: (value) {
+                              setState(() {
+                                username = value;
+                              });
+                            },
                             style: TextStyle(color: Colors.white),
                             decoration: InputDecoration(
                                 enabledBorder: OutlineInputBorder(
@@ -99,6 +98,11 @@ class _MyRegisterState extends State<MyRegister> {
                             height: 30,
                           ),
                           TextField(
+                            onChanged: (value) {
+                              setState(() {
+                                password = value;
+                              });
+                            },
                             style: TextStyle(color: Colors.white),
                             decoration: InputDecoration(
                                 enabledBorder: OutlineInputBorder(
@@ -123,6 +127,11 @@ class _MyRegisterState extends State<MyRegister> {
                             height: 30,
                           ),
                           TextField(
+                            onChanged: (value) {
+                              setState(() {
+                                confirm_password = value;
+                              });
+                            },
                             style: TextStyle(color: Colors.white),
                             obscureText: true,
                             decoration: InputDecoration(
