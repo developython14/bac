@@ -8,6 +8,7 @@ class payment extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print(context.read<Ccpproviderd>().list_ccp);
     return Directionality(
       textDirection: TextDirection.rtl,
       child: Scaffold(
