@@ -23,7 +23,7 @@ class _MyRegisterState extends State<MyRegister> {
   String? password = '';
   String? confirm_password = '';
   String? device_id = '';
-  var response;
+  var __response;
   Map<String, dynamic> _deviceData = <String, dynamic>{};
   static final DeviceInfoPlugin deviceInfoPlugin = DeviceInfoPlugin();
   Future<void> initPlatformState() async {
@@ -128,7 +128,7 @@ class _MyRegisterState extends State<MyRegister> {
     var response = await http.Response.fromStream(push);
     var jsonResponse = convert.jsonDecode(response.body);
     setState(() {
-      response = jsonResponse;
+      __response = jsonResponse;
     });
   }
 
@@ -287,10 +287,10 @@ class _MyRegisterState extends State<MyRegister> {
                                             FutureProgressDialog(signup(),
                                                 message: Text('Loading...')),
                                       );
-                                      if (response['message'] == 'success') {
+                                      if (__response['message'] == 'success') {
                                         context
                                             .read<device_infoproviderd>()
-                                            .set_userdata(response);
+                                            .set_userdata(__response);
                                         Navigator.pushNamed(context, '/');
                                       }
                                     },
