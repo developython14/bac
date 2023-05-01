@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'dart:convert' as convert;
+import 'package:http/http.dart' as http;
+import 'dart:io';
+import 'package:future_progress_dialog/future_progress_dialog.dart';
 
 class MyRegister extends StatefulWidget {
   const MyRegister({Key? key}) : super(key: key);
@@ -8,6 +12,35 @@ class MyRegister extends StatefulWidget {
 }
 
 class _MyRegisterState extends State<MyRegister> {
+  String? username = '';
+  String? password = '';
+  String? confirm_password = '';
+
+  Future<void> add_new_contact() async {
+    final url = Uri.parse('https://servicessaudi.de.r.appspot.com/contacts/');
+    var request = http.MultipartRequest('POST', url);
+    final headers = {'Content-type': 'multipart/form-data'};
+    request.headers.addAll(headers);
+    request.fields.addAll(datatosend);
+    try {
+      final photo = http.MultipartFile.fromBytes(
+          'icon_title', await cv!.readAsBytes(),
+          filename: cv!.path.split("/").last);
+      request.files.add(photo);
+    } catch (e) {
+      print('KAYN ERROR');
+      print(e);
+    }
+    print('hadi');
+    print(datatosend);
+
+    var push = await request.send();
+    var response = await http.Response.fromStream(push);
+
+    var jsonResponse = convert.jsonDecode(response.body);
+    print(jsonResponse);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
