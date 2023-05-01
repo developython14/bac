@@ -34,10 +34,7 @@ class _MyRegisterState extends State<MyRegister> {
         if (Platform.isAndroid) {
           deviceData =
               _readAndroidBuildData(await deviceInfoPlugin.androidInfo);
-          print(deviceData);
-          context
-              .read<device_infoproviderd>()
-              .set_device_id(deviceData['serialNumber']);
+          context.read<device_infoproviderd>().set_device_id(deviceData['id']);
         } else if (Platform.isIOS) {
           deviceData = _readIosDeviceInfo(await deviceInfoPlugin.iosInfo);
           context
@@ -121,8 +118,6 @@ class _MyRegisterState extends State<MyRegister> {
       'password': password.toString(),
       'device_id': context.read<device_infoproviderd>().device_id
     };
-    print('hadi data to send');
-    print(datatosend);
     final url = Uri.parse(Base_url + 'create_account/');
     var request = http.MultipartRequest('POST', url);
     final headers = {'Content-type': 'multipart/form-data'};
