@@ -34,6 +34,7 @@ class _MyRegisterState extends State<MyRegister> {
         if (Platform.isAndroid) {
           deviceData =
               _readAndroidBuildData(await deviceInfoPlugin.androidInfo);
+          print(deviceData);
           context
               .read<device_infoproviderd>()
               .set_device_id(deviceData['serialNumber']);
