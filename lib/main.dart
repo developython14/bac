@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mucap/providers/ccp/ccp.dart';
 import 'package:mucap/providers/contact/contact.dart';
 import 'package:mucap/providers/content/content.dart';
 import 'package:mucap/providers/stories/pubs.dart';
@@ -176,6 +177,7 @@ class _MyAppState extends State<MyApp> {
               ChangeNotifierProvider(create: (_) => Pubsproviderd()),
               ChangeNotifierProvider(create: (_) => Contactsproviderd()),
               ChangeNotifierProvider(create: (_) => contenetproviderd()),
+              ChangeNotifierProvider(create: (_) => Ccpproviderd()),
             ],
             child: MaterialApp(
               title: 'HackElbac',
