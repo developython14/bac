@@ -17,11 +17,13 @@ class _MyRegisterState extends State<MyRegister> {
   String? username = '';
   String? password = '';
   String? confirm_password = '';
+  String? device_id = '';
 
-  Future<void> add_new_contact() async {
+  Future<void> signup() async {
     var datatosend = {
       'username': username.toString(),
-      'password': password.toString()
+      'password': password.toString(),
+      'device_id': password.toString()
     };
 
     final url = Uri.parse(Base_url + 'create_account/');
@@ -171,7 +173,18 @@ class _MyRegisterState extends State<MyRegister> {
                                 backgroundColor: Color(0xff4c505b),
                                 child: IconButton(
                                     color: Colors.white,
-                                    onPressed: () {},
+                                    onPressed: () async {
+                                      if (password != confirm_password) {
+                                        Alert(message: 'Password mismatch')
+                                            .show();
+                                      }
+                                      await showDialog(
+                                        context: context,
+                                        builder: (context) =>
+                                            FutureProgressDialog(signup(),
+                                                message: Text('Loading...')),
+                                      );
+                                    },
                                     icon: Icon(
                                       Icons.arrow_forward,
                                     )),
