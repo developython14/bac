@@ -1,4 +1,15 @@
 import 'package:flutter/material.dart';
+import 'dart:convert' as convert;
+import 'package:http/http.dart' as http;
+import 'dart:io';
+import 'package:future_progress_dialog/future_progress_dialog.dart';
+import 'package:mucap/models/constantes/const.dart';
+import 'package:alert/alert.dart';
+import 'package:device_info_plus/device_info_plus.dart';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/services.dart';
+import 'package:mucap/providers/device/device_info.dart';
+import 'package:provider/provider.dart';
 
 class MyLogin extends StatefulWidget {
   const MyLogin({Key? key}) : super(key: key);
@@ -8,6 +19,29 @@ class MyLogin extends StatefulWidget {
 }
 
 class _MyLoginState extends State<MyLogin> {
+  String? username = '';
+  String? password = '';
+  var __response;
+
+  Future<void> signup() async {
+    var datatosend = {
+      'username': username.toString(),
+      'password': password.toString(),
+      'device_id': context.read<device_infoproviderd>().device_id
+    };
+    final url = Uri.parse(Base_url + 'student_login/');
+    var request = http.MultipartRequest('POST', url);
+    final headers = {'Content-type': 'multipart/form-data'};
+    request.headers.addAll(headers);
+    request.fields.addAll(datatosend);
+    var push = await request.send();
+    var response = await http.Response.fromStream(push);
+    var jsonResponse = convert.jsonDecode(response.body);
+    setState(() {
+      __response = jsonResponse;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -39,6 +73,11 @@ class _MyLoginState extends State<MyLogin> {
                       child: Column(
                         children: [
                           TextField(
+                            onChanged: (value) {
+                              setState(() {
+                                username = value;
+                              });
+                            },
                             style: TextStyle(color: Colors.black),
                             decoration: InputDecoration(
                                 fillColor: Colors.grey.shade100,
@@ -57,7 +96,7 @@ class _MyLoginState extends State<MyLogin> {
                             decoration: InputDecoration(
                                 fillColor: Colors.grey.shade100,
                                 filled: true,
-                                hintText: "اسم المستخدم",
+                                hintText: "password",
                                 border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(10),
                                 )),

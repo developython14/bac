@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:convex_bottom_bar/convex_bottom_bar.dart';
+import 'package:mucap/providers/device/device_info.dart';
 import 'package:mucap/screens/landing/Home/home.dart';
 import 'package:mucap/screens/landing/comment/comment.dart';
 import 'package:mucap/screens/landing/contact/contact.dart';
 import 'package:mucap/screens/landing/payment/payment.dart';
+import 'package:provider/provider.dart';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/services.dart';
 
 class Landing extends StatefulWidget {
   const Landing({Key? key}) : super(key: key);
@@ -82,7 +86,7 @@ class drawer_login extends StatelessWidget {
                       'https://th.bing.com/th?id=OIF.%2fzwSa5sbkHSYECwO3So00g&pid=ImgDet&rs=1'),
                 ),
                 Text(
-                  'Mustapha belkassem',
+                  context.read<device_infoproviderd>().username,
                   style: TextStyle(
                       fontWeight: FontWeight.bold, color: Colors.white),
                 ),

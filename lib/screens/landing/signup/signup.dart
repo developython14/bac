@@ -287,11 +287,15 @@ class _MyRegisterState extends State<MyRegister> {
                                             FutureProgressDialog(signup(),
                                                 message: Text('Loading...')),
                                       );
+
                                       if (__response['message'] == 'success') {
                                         context
                                             .read<device_infoproviderd>()
                                             .set_userdata(__response);
                                         Navigator.pushNamed(context, '/');
+                                      } else {
+                                        Alert(message: __response['message'])
+                                            .show();
                                       }
                                     },
                                     icon: Icon(

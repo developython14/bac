@@ -15,12 +15,17 @@ class device_infoproviderd with ChangeNotifier, DiagnosticableTreeMixin {
   int _id = 0;
 
   String get device_id => __device_id;
+  String get username => _user_name;
+  String get user_id => _user_id;
+
   Future<void> set_device_id(id) async {
     __device_id = id;
     notifyListeners();
   }
 
   Future<void> set_userdata(response) async {
+    print('called');
+    print(response);
     _user_id = response['user_id'];
     _user_name = response['username'];
     notifyListeners();
