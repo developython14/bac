@@ -57,8 +57,6 @@ class _MyAppState extends State<MyApp> {
         if (Platform.isAndroid) {
           deviceData =
               _readAndroidBuildData(await deviceInfoPlugin.androidInfo);
-          print('hada l id ');
-          print(context.watch<device_infoproviderd>().device_id);
         } else if (Platform.isIOS) {
           deviceData = _readIosDeviceInfo(await deviceInfoPlugin.iosInfo);
         }
