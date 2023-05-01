@@ -29,14 +29,18 @@ class Ccpproviderd with ChangeNotifier, DiagnosticableTreeMixin {
 }
 
 Future<List> getdata() async {
+  print('ccp image caled');
   var test = Uri.parse(Base_url + 'ccp_images');
   var response = await http.get(test);
   List articles = [];
   if (response.statusCode == 200) {
     var jsonResponse = convert.jsonDecode(response.body)['results'];
+    print(response.body);
     for (var i = 0; i < jsonResponse.length; i++) {
       articles.add(jsonResponse[i]);
     }
+
+    print(articles);
     return articles;
   } else {
     print('Request failed with status: ${response.statusCode}.');
