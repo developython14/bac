@@ -23,6 +23,7 @@ class _MyRegisterState extends State<MyRegister> {
   String? password = '';
   String? confirm_password = '';
   String? device_id = '';
+  var response;
   Map<String, dynamic> _deviceData = <String, dynamic>{};
   static final DeviceInfoPlugin deviceInfoPlugin = DeviceInfoPlugin();
   Future<void> initPlatformState() async {
@@ -126,7 +127,9 @@ class _MyRegisterState extends State<MyRegister> {
     var push = await request.send();
     var response = await http.Response.fromStream(push);
     var jsonResponse = convert.jsonDecode(response.body);
-    print(jsonResponse);
+    setState(() {
+      response = jsonResponse;
+    });
   }
 
   @override
@@ -276,6 +279,7 @@ class _MyRegisterState extends State<MyRegister> {
                                       if (password != confirm_password) {
                                         Alert(message: 'Password mismatch')
                                             .show();
+                                        return;
                                       }
                                       await showDialog(
                                         context: context,
@@ -283,6 +287,12 @@ class _MyRegisterState extends State<MyRegister> {
                                             FutureProgressDialog(signup(),
                                                 message: Text('Loading...')),
                                       );
+                                      if (response['message'] == 'success') {
+                                        context
+                                            .read<device_infoproviderd>()
+                                            .set_userdata(response);
+                                        Navigator.pushNamed(context, '/');
+                                      }
                                     },
                                     icon: Icon(
                                       Icons.arrow_forward,

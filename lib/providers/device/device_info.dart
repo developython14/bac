@@ -8,11 +8,21 @@ import 'package:http/http.dart' as http;
 
 class device_infoproviderd with ChangeNotifier, DiagnosticableTreeMixin {
   String __device_id = '';
+  String _user_id = '';
+  String __user_image = '';
+  String _user_name = '';
+
   int _id = 0;
 
   String get device_id => __device_id;
   Future<void> set_device_id(id) async {
     __device_id = id;
+    notifyListeners();
+  }
+
+  Future<void> set_userdata(response) async {
+    _user_id = response['user_id'];
+    _user_name = response['username'];
     notifyListeners();
   }
 
