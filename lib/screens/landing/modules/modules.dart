@@ -24,14 +24,14 @@ class modules extends StatelessWidget {
                   title: 'العلوم الفيزيائية',
                   abre:
                       'https://2as.ency-education.com/uploads/1/0/9/0/1090282/icon-new-english_orig.png',
-                  path: '/profs',
+                  path: '/cours',
                 ),
                 module_componant(
                   hei: hei,
                   title: ' العلوم الطبيعية ',
                   abre:
                       'https://2as.ency-education.com/uploads/1/0/9/0/1090282/icon-new-sciences_orig.png',
-                  path: '/profs',
+                  path: '/cours',
                 ),
               ],
             ),

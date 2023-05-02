@@ -30,7 +30,6 @@ class _change_photoState extends State<change_photo> {
     final headers = {'Content-type': 'multipart/form-data'};
     var datatosend = {'id': context.read<device_infoproviderd>().student_id};
     request.fields.addAll(datatosend);
-
     request.headers.addAll(headers);
     try {
       final photo = http.MultipartFile.fromBytes(
@@ -40,9 +39,9 @@ class _change_photoState extends State<change_photo> {
     } catch (e) {}
     var push = await request.send();
     var response = await http.Response.fromStream(push);
-    print('hadi resp');
-    print(response);
     var jsonResponse = convert.jsonDecode(response.body);
+    print('PASESD SUCEDD');
+    print(jsonResponse);
     setState(() {
       __response = jsonResponse;
     });
