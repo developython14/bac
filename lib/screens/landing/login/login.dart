@@ -29,9 +29,7 @@ class _MyLoginState extends State<MyLogin> {
       'password': password.toString(),
       'device_id': context.read<device_infoproviderd>().device_id
     };
-    print(datatosend);
     final url = Uri.parse(Base_url + 'student_login/');
-    print(url);
     var request = http.MultipartRequest('POST', url);
     final headers = {'Content-type': 'multipart/form-data'};
     request.headers.addAll(headers);
@@ -132,7 +130,7 @@ class _MyLoginState extends State<MyLogin> {
                                                 message: Text('Loading...')),
                                       );
 
-                                      if (__response['message'] == 'success') {
+                                      if (__response['message'] == 'succes') {
                                         context
                                             .read<device_infoproviderd>()
                                             .set_userdata(__response);

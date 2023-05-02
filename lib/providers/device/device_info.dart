@@ -17,6 +17,7 @@ class device_infoproviderd with ChangeNotifier, DiagnosticableTreeMixin {
   String get device_id => __device_id;
   String get username => _user_name;
   String get user_id => _user_id;
+  String get userimage => __user_image;
 
   Future<void> set_device_id(id) async {
     __device_id = id;
@@ -28,6 +29,11 @@ class device_infoproviderd with ChangeNotifier, DiagnosticableTreeMixin {
     print(response);
     _user_id = response['user_id'].toString();
     _user_name = response['username'];
+    notifyListeners();
+  }
+
+  Future<void> set_userimage(img) async {
+    __user_image = img;
     notifyListeners();
   }
 
