@@ -29,7 +29,9 @@ class _MyLoginState extends State<MyLogin> {
       'password': password.toString(),
       'device_id': context.read<device_infoproviderd>().device_id
     };
+    print(datatosend);
     final url = Uri.parse(Base_url + 'student_login/');
+    print(url);
     var request = http.MultipartRequest('POST', url);
     final headers = {'Content-type': 'multipart/form-data'};
     request.headers.addAll(headers);
@@ -91,12 +93,17 @@ class _MyLoginState extends State<MyLogin> {
                             height: 30,
                           ),
                           TextField(
+                            onChanged: (value) {
+                              setState(() {
+                                password = value;
+                              });
+                            },
                             style: TextStyle(),
                             obscureText: true,
                             decoration: InputDecoration(
                                 fillColor: Colors.grey.shade100,
                                 filled: true,
-                                hintText: "password",
+                                hintText: "كلمه المرور",
                                 border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(10),
                                 )),
@@ -117,7 +124,24 @@ class _MyLoginState extends State<MyLogin> {
                                 backgroundColor: Color(0xff4c505b),
                                 child: IconButton(
                                     color: Colors.white,
-                                    onPressed: () {},
+                                    onPressed: () async {
+                                      await showDialog(
+                                        context: context,
+                                        builder: (context) =>
+                                            FutureProgressDialog(signup(),
+                                                message: Text('Loading...')),
+                                      );
+
+                                      if (__response['message'] == 'success') {
+                                        context
+                                            .read<device_infoproviderd>()
+                                            .set_userdata(__response);
+                                        Navigator.pushNamed(context, '/');
+                                      } else {
+                                        Alert(message: __response['message'])
+                                            .show();
+                                      }
+                                    },
                                     icon: Icon(
                                       Icons.arrow_forward,
                                     )),

@@ -26,7 +26,7 @@ class device_infoproviderd with ChangeNotifier, DiagnosticableTreeMixin {
   Future<void> set_userdata(response) async {
     print('called');
     print(response);
-    _user_id = response['user_id'];
+    _user_id = response['user_id'].toString();
     _user_name = response['username'];
     notifyListeners();
   }
