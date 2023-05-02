@@ -28,7 +28,7 @@ class _change_photoState extends State<change_photo> {
     final url = Uri.parse(Base_url + 'put_account/');
     var request = http.MultipartRequest('POST', url);
     final headers = {'Content-type': 'multipart/form-data'};
-    var datatosend = {'id': context.read<device_infoproviderd>().user_id};
+    var datatosend = {'id': context.read<device_infoproviderd>().student_id};
     request.fields.addAll(datatosend);
 
     request.headers.addAll(headers);
@@ -40,6 +40,8 @@ class _change_photoState extends State<change_photo> {
     } catch (e) {}
     var push = await request.send();
     var response = await http.Response.fromStream(push);
+    print('hadi resp');
+    print(response);
     var jsonResponse = convert.jsonDecode(response.body);
     setState(() {
       __response = jsonResponse;
@@ -78,11 +80,12 @@ class _change_photoState extends State<change_photo> {
                           change_profile(),
                           message: Text('Loading...')),
                     );
-                    if (__response['mesage'] == 'updated succeffuly') {
+                    if (__response['message'] == 'updated succeffuly') {
                       Alert(message: 'succes').show();
+                      print(__response);
                       context
                           .read<device_infoproviderd>()
-                          .set_userdata(__response);
+                          .set_userimage(__response['image']);
                     }
                   },
                   child: Text('تأكيد التعديل'))

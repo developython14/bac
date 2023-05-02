@@ -11,12 +11,15 @@ class device_infoproviderd with ChangeNotifier, DiagnosticableTreeMixin {
   String _user_id = '';
   String __user_image = '';
   String _user_name = '';
+  String __student_id = '';
 
   int _id = 0;
 
   String get device_id => __device_id;
   String get username => _user_name;
   String get user_id => _user_id;
+  String get student_id => __student_id;
+
   String get userimage => __user_image;
 
   Future<void> set_device_id(id) async {
@@ -25,10 +28,10 @@ class device_infoproviderd with ChangeNotifier, DiagnosticableTreeMixin {
   }
 
   Future<void> set_userdata(response) async {
-    print('called');
-    print(response);
     _user_id = response['user_id'].toString();
     _user_name = response['username'];
+    __user_image = response['image'];
+    __student_id = response['person_id'];
     notifyListeners();
   }
 

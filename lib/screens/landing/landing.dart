@@ -34,7 +34,9 @@ class _LandingState extends State<Landing> {
         child: Scaffold(
           drawer: ClipRRect(
             borderRadius: BorderRadius.circular(20),
-            child: drawer_login(),
+            child: context.read<device_infoproviderd>().user_id != ''
+                ? drawer_login()
+                : drawer_guess(),
           ),
           bottomNavigationBar: ConvexAppBar(
             activeColor: Colors.black,
@@ -83,7 +85,7 @@ class drawer_login extends StatelessWidget {
                 CircleAvatar(
                   radius: 50,
                   backgroundImage: NetworkImage(
-                      'https://th.bing.com/th?id=OIF.%2fzwSa5sbkHSYECwO3So00g&pid=ImgDet&rs=1'),
+                      context.read<device_infoproviderd>().userimage),
                 ),
                 Text(
                   context.read<device_infoproviderd>().username,
