@@ -16,6 +16,7 @@ class splash extends StatefulWidget {
 
 class _splashState extends State<splash> {
   get_data() async {
+    print('frero');
     if (context.watch<Storiesproviderd>().status == 'idle') {
       context.watch<Storiesproviderd>().getallstories();
       context.watch<Pubsproviderd>().getallpubs();
@@ -25,7 +26,6 @@ class _splashState extends State<splash> {
     }
     print('allo');
     await Future.delayed(Duration(seconds: 6));
-    Navigator.pushNamed(context, '/');
   }
 
   @override
