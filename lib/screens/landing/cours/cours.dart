@@ -63,7 +63,11 @@ class _CoursState extends State<Cours> {
                           'https://drive.google.com/file/d/1S_E555kO_lxv7ETzbSVAK17A_4SdV6bF/view');
                     },
                     child: Text('حمل ملف الملخص الشامل من هنا')),
-                chaipte(headerStyle: _headerStyle),
+                GestureDetector(
+                    onTap: () {
+                      setState(() {});
+                    },
+                    child: chaipte(headerStyle: _headerStyle)),
                 chaipte(headerStyle: _headerStyle),
                 chaipte(headerStyle: _headerStyle),
                 chaipte(headerStyle: _headerStyle),
@@ -108,9 +112,11 @@ class chaipte extends StatefulWidget {
 }
 
 class _chaipteState extends State<chaipte> {
+  var ref = ' ';
   @override
   Widget build(BuildContext context) {
     return Container(
+      color: Color.fromARGB(255, 0, 0, 0),
       margin: EdgeInsets.only(top: 20, bottom: 20),
       child: Accordion(
         paddingListBottom: 0,
@@ -126,7 +132,6 @@ class _chaipteState extends State<chaipte> {
           AccordionSection(
             onOpenSection: () {
               print('selected');
-              setState(() {});
             },
             leftIcon: const Icon(Icons.insights_rounded, color: Colors.white),
             headerBackgroundColor: Colors.red,
@@ -139,7 +144,6 @@ class _chaipteState extends State<chaipte> {
                   onTap: () {
                     setState(() {
                       print('called fine');
-                      setState(() {});
                     });
                   },
                   child: Row(
