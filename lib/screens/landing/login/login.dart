@@ -136,7 +136,9 @@ class _MyLoginState extends State<MyLogin> {
                                             .set_userdata(__response);
                                         Navigator.pushNamed(context, '/');
                                       } else {
-                                        Alert(message: __response['message'])
+                                        Alert(
+                                                message: __response['message'],
+                                                shortDuration: false)
                                             .show();
                                       }
                                     },

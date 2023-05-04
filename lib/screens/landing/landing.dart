@@ -121,7 +121,9 @@ class drawer_login extends StatelessWidget {
           ),
           Card(
             child: ListTile(
-              onTap: () {},
+              onTap: () {
+                Navigator.pushNamed(context, '/login');
+              },
               leading: Icon(
                 Icons.logout,
                 color: Color(0xffF6C90E),

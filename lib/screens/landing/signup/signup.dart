@@ -289,10 +289,7 @@ class _MyRegisterState extends State<MyRegister> {
                                       );
 
                                       if (__response['message'] == 'success') {
-                                        context
-                                            .read<device_infoproviderd>()
-                                            .set_userdata(__response);
-                                        Navigator.pushNamed(context, '/');
+                                        Navigator.pushNamed(context, '/login');
                                       } else {
                                         Alert(message: __response['message'])
                                             .show();

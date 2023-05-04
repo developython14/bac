@@ -15,6 +15,7 @@ import 'package:mucap/screens/landing/login/login.dart';
 import 'package:mucap/screens/landing/modules/modules.dart';
 import 'package:mucap/screens/landing/profs/profs.dart';
 import 'package:mucap/screens/landing/signup/signup.dart';
+import 'package:mucap/screens/landing/splash/splash.dart';
 import 'package:mucap/screens/landing/test.dart';
 import 'package:palestine_trusted_device/palestine_trusted_device.dart';
 import 'dart:async';
@@ -197,8 +198,9 @@ class _MyAppState extends State<MyApp> {
                   textTheme: GoogleFonts.cairoTextTheme(
                     Theme.of(context).textTheme,
                   )),
-              initialRoute: '/signup',
+              initialRoute: '/splash',
               routes: {
+                '/splash': (context) => splash(),
                 '/': (context) => Landing(),
                 '/stories': (context) => MoreStories(),
                 '/login': (context) => MyLogin(),
