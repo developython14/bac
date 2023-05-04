@@ -23,12 +23,6 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (context.watch<Storiesproviderd>().status == 'idle') {
-      context.watch<Storiesproviderd>().getallstories();
-      context.watch<Pubsproviderd>().getallpubs();
-      context.watch<contenetproviderd>().getallcontenet();
-      context.watch<Ccpproviderd>().getallccp();
-    }
     var items = context
         .watch<Pubsproviderd>()
         .list_pubs

@@ -17,9 +17,6 @@ class contatc extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (context.watch<Contactsproviderd>().status == 'idle') {
-      context.watch<Contactsproviderd>().getallcontacts();
-    }
     List ref = context.watch<Contactsproviderd>().list_contacts;
     return Directionality(
       textDirection: TextDirection.rtl,
