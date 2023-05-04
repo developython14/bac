@@ -126,6 +126,7 @@ class _chaipteState extends State<chaipte> {
           AccordionSection(
             onOpenSection: () {
               print('selected');
+              setState(() {});
             },
             leftIcon: const Icon(Icons.insights_rounded, color: Colors.white),
             headerBackgroundColor: Colors.red,
@@ -138,6 +139,7 @@ class _chaipteState extends State<chaipte> {
                   onTap: () {
                     setState(() {
                       print('called fine');
+                      setState(() {});
                     });
                   },
                   child: Row(
