@@ -114,10 +114,16 @@ class _CoursState extends State<Cours> {
                 chaipte(headerStyle: _headerStyle),
                 GestureDetector(
                     onTap: () {
+                      print('fin');
                       controller.changeVideo(
                           playVideoFrom: PlayVideoFrom.network(
                         'https://assets.mixkit.co/videos/preview/mixkit-man-looking-for-household-items-in-home-store-49348-large.mp4',
                       ));
+                      _controller.animateTo(
+                        _controller.position.minScrollExtent,
+                        duration: Duration(seconds: 2),
+                        curve: Curves.ease,
+                      );
                     },
                     child: chaipte(headerStyle: _headerStyle)),
               ],
