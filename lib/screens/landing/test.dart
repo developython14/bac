@@ -10,11 +10,13 @@ class data_ref extends StatefulWidget {
 
 class _data_refState extends State<data_ref> {
   late VideoPlayerController _controller;
+  var link = 'https://storage.googleapis.com/bacdz/test.mp4';
+
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    _controller = VideoPlayerController.asset('assets/Butterfly-209.mp4');
+    _controller = VideoPlayerController.network(link);
 
     _controller.addListener(() {
       setState(() {});
@@ -34,7 +36,9 @@ class _data_refState extends State<data_ref> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(children: []),
+      body: Column(children: [
+        VideoPlayer(_controller),
+      ]),
     );
   }
 }
