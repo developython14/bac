@@ -31,13 +31,14 @@ class _CoursState extends State<Cours> {
       color: Color(0xff999999), fontSize: 14, fontWeight: FontWeight.normal);
   late final PodPlayerController controller;
 
-  bool isAutoplayEnabled = false;
-  bool isPlaybackLoopEnabled = false;
-
   @override
   void initState() {
+    print('fine hbb');
     // TODO: implement initState
-    controller = PodPlayerController(playVideoFrom: PlayVideoFrom.network(link))
+    controller = PodPlayerController(
+        playVideoFrom: PlayVideoFrom.network(link),
+        podPlayerConfig:
+            PodPlayerConfig(videoQualityPriority: const [1080, 720, 360]))
       ..initialise();
     super.initState();
   }
@@ -69,7 +70,10 @@ class _CoursState extends State<Cours> {
                 GestureDetector(
                     onTap: () {
                       print('dz');
-                      setState(() {});
+                      setState(() {
+                        link = 'frefe';
+                      });
+                      print(link);
                     },
                     child: chaipte(headerStyle: _headerStyle)),
                 chaipte(headerStyle: _headerStyle),
