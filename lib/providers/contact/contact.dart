@@ -32,7 +32,9 @@ Future<List> getdata() async {
   var response = await http.get(test);
   List articles = [];
   if (response.statusCode == 200) {
-    var jsonResponse = convert.jsonDecode(response.body)['results'];
+    var jsonResponse =
+        convert.jsonDecode(convert.utf8.decode(response.bodyBytes));
+    jsonResponse = jsonResponse['results'];
     for (var i = 0; i < jsonResponse.length; i++) {
       articles.add(jsonResponse[i]);
     }
