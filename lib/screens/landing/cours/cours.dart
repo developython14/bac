@@ -69,11 +69,9 @@ class _CoursState extends State<Cours> {
                     child: Text('حمل ملف الملخص الشامل من هنا')),
                 GestureDetector(
                     onTap: () {
-                      print('dz');
-                      setState(() {
-                        link = 'frefe';
-                      });
-                      print(link);
+                      controller.changeVideo(
+                          playVideoFrom: PlayVideoFrom.network(
+                              'https://assets.mixkit.co/videos/preview/mixkit-man-looking-for-household-items-in-home-store-49348-large.mp4'));
                     },
                     child: chaipte(headerStyle: _headerStyle)),
                 chaipte(headerStyle: _headerStyle),
@@ -96,6 +94,13 @@ class _CoursState extends State<Cours> {
                 chaipte(headerStyle: _headerStyle),
                 chaipte(headerStyle: _headerStyle),
                 chaipte(headerStyle: _headerStyle),
+                GestureDetector(
+                    onTap: () {
+                      controller.changeVideo(
+                          playVideoFrom: PlayVideoFrom.network(
+                              'https://assets.mixkit.co/videos/preview/mixkit-man-looking-for-household-items-in-home-store-49348-large.mp4'));
+                    },
+                    child: chaipte(headerStyle: _headerStyle)),
               ],
             ),
           ),
