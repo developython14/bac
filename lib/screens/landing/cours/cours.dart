@@ -37,8 +37,9 @@ class _CoursState extends State<Cours> {
     // TODO: implement initState
     controller = PodPlayerController(
         playVideoFrom: PlayVideoFrom.network(link),
-        podPlayerConfig:
-            PodPlayerConfig(videoQualityPriority: const [1080, 720, 360]))
+        podPlayerConfig: PodPlayerConfig(
+            videoQualityPriority: const [1080, 720, 360],
+            forcedVideoFocus: true))
       ..initialise();
     super.initState();
   }
@@ -98,7 +99,8 @@ class _CoursState extends State<Cours> {
                     onTap: () {
                       controller.changeVideo(
                           playVideoFrom: PlayVideoFrom.network(
-                              'https://assets.mixkit.co/videos/preview/mixkit-man-looking-for-household-items-in-home-store-49348-large.mp4'));
+                        'https://assets.mixkit.co/videos/preview/mixkit-man-looking-for-household-items-in-home-store-49348-large.mp4',
+                      ));
                     },
                     child: chaipte(headerStyle: _headerStyle)),
               ],
