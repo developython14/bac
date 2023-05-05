@@ -43,22 +43,6 @@ class _CoursState extends State<Cours> {
       ..initialise();
     super.initState();
     _controller = ScrollController();
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      _controller
-          .animateTo(
-        _controller.position.maxScrollExtent,
-        duration: Duration(seconds: 1),
-        curve: Curves.ease,
-      )
-          .then((value) async {
-        await Future.delayed(Duration(seconds: 2));
-        _controller.animateTo(
-          _controller.position.minScrollExtent,
-          duration: Duration(seconds: 1),
-          curve: Curves.ease,
-        );
-      });
-    });
   }
 
   @override
@@ -76,6 +60,7 @@ class _CoursState extends State<Cours> {
       child: SafeArea(
         child: Scaffold(
           body: SingleChildScrollView(
+            controller: _controller,
             child: Column(
               children: [
                 PodVideoPlayer(controller: controller),
