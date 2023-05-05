@@ -198,7 +198,7 @@ class _MyAppState extends State<MyApp> {
                   textTheme: GoogleFonts.cairoTextTheme(
                     Theme.of(context).textTheme,
                   )),
-              initialRoute: '/splash',
+              initialRoute: '/test',
               routes: {
                 '/splash': (context) => splash(),
                 '/': (context) => Landing(),
@@ -211,6 +211,7 @@ class _MyAppState extends State<MyApp> {
                 '/cours': (context) => Cours(),
                 '/faq': (context) => faq(),
                 '/change_photo': (context) => change_photo(),
+                '/test': (context) => data_ref(),
               },
             ),
           );

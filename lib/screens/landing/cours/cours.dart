@@ -31,6 +31,9 @@ class _CoursState extends State<Cours> {
       color: Color(0xff999999), fontSize: 14, fontWeight: FontWeight.normal);
   late final PodPlayerController controller;
 
+  bool isAutoplayEnabled = false;
+  bool isPlaybackLoopEnabled = false;
+
   @override
   void initState() {
     // TODO: implement initState
@@ -65,6 +68,7 @@ class _CoursState extends State<Cours> {
                     child: Text('حمل ملف الملخص الشامل من هنا')),
                 GestureDetector(
                     onTap: () {
+                      print('dz');
                       setState(() {});
                     },
                     child: chaipte(headerStyle: _headerStyle)),
