@@ -30,10 +30,10 @@ class _CoursState extends State<Cours> {
   final _contentStyle = const TextStyle(
       color: Color(0xff999999), fontSize: 14, fontWeight: FontWeight.normal);
   late final PodPlayerController controller;
+  late ScrollController _controller;
 
   @override
   void initState() {
-    print('fine hbb');
     // TODO: implement initState
     controller = PodPlayerController(
         playVideoFrom: PlayVideoFrom.network(link),
@@ -42,6 +42,23 @@ class _CoursState extends State<Cours> {
             forcedVideoFocus: true))
       ..initialise();
     super.initState();
+    _controller = ScrollController();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _controller
+          .animateTo(
+        _controller.position.maxScrollExtent,
+        duration: Duration(seconds: 1),
+        curve: Curves.ease,
+      )
+          .then((value) async {
+        await Future.delayed(Duration(seconds: 2));
+        _controller.animateTo(
+          _controller.position.minScrollExtent,
+          duration: Duration(seconds: 1),
+          curve: Curves.ease,
+        );
+      });
+    });
   }
 
   @override
